@@ -1,5 +1,9 @@
-#include "OpenGL.hpp"
+#include "System.hpp"
 
-function<void(int)> AcyncTimer::func;
-unsigned int AcyncTimer::time;
-int AcyncTimer::value;
+namespace opc {
+
+	std::function<void(int)> AcyncTimer::func;
+	unsigned int AcyncTimer::time;
+	int AcyncTimer::value;
+
+}

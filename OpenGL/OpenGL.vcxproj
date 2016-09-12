@@ -149,11 +149,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AcyncTimer.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenGL.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Size.cpp" />
+    <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AcyncTimer.hpp" />
+    <ClInclude Include="Color.hpp" />
     <ClInclude Include="OpenGL.hpp" />
+    <ClInclude Include="Palette.hpp" />
+    <ClInclude Include="Point.hpp" />
+    <ClInclude Include="Size.hpp" />
+    <ClInclude Include="System.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

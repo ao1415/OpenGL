@@ -30,15 +30,14 @@ void timer(int value) {
 	x += 2;
 
 	glutPostRedisplay();
-	//glutTimerFunc(16, timer, 0);
 }
 
 int main(int argc, char *argv[])
 {
 	System system;
 
-	system.setOrtho2D(DPoint(0, 0), DPoint(640, 480));
-	system.setOrtho2D(DPoint(-320, -240), DPoint(320, 240));
+	system.setOrtho2D(RealPoint(0, 0), RealPoint(640, 480));
+	system.setOrtho2D(RealPoint(-320, -240), RealPoint(320, 240));
 
 	system.setDisplayFunc(display);
 	system.setTimerFunc(16, timer, 0);

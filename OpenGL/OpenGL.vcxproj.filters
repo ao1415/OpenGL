@@ -12,6 +12,21 @@
     <Filter Include="ソース ファイル\OpenGL">
       <UniqueIdentifier>{ffc45c3c-f619-475d-ba6d-0981e900adad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Point">
+      <UniqueIdentifier>{1c4fb158-25b2-488c-b934-48eb104128eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Size">
+      <UniqueIdentifier>{7fe62756-ed7f-4c76-beaf-3d8101ca5e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Color">
+      <UniqueIdentifier>{d7801615-8435-4985-b5f7-97a43e01e240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\System">
+      <UniqueIdentifier>{801f6391-bed4-4b86-88aa-04bc130fd984}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\System\AcyncTimer">
+      <UniqueIdentifier>{b9d98e16-d0d3-4f5e-8272-b4630be0eecb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -23,10 +38,43 @@
     <ClCompile Include="OpenGL.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>ソース ファイル\OpenGL\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Size.cpp">
+      <Filter>ソース ファイル\OpenGL\Size</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="System.cpp">
+      <Filter>ソース ファイル\OpenGL\System</Filter>
+    </ClCompile>
+    <ClCompile Include="AcyncTimer.cpp">
+      <Filter>ソース ファイル\OpenGL\System\AcyncTimer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGL.hpp">
       <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.hpp">
+      <Filter>ソース ファイル\OpenGL\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Size.hpp">
+      <Filter>ソース ファイル\OpenGL\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.hpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="Palette.hpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="System.hpp">
+      <Filter>ソース ファイル\OpenGL\System</Filter>
+    </ClInclude>
+    <ClInclude Include="AcyncTimer.hpp">
+      <Filter>ソース ファイル\OpenGL\System\AcyncTimer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
