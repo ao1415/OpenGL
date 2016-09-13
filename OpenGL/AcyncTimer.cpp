@@ -2,6 +2,10 @@
 
 namespace opc {
 
+	std::function<void(int)> AcyncTimer::func;
+	unsigned int AcyncTimer::time;
+	int AcyncTimer::value;
+
 	AcyncTimer::AcyncTimer() {}
 	AcyncTimer::AcyncTimer(std::function<void(int)> _func) {
 		func = _func;
@@ -13,6 +17,5 @@ namespace opc {
 
 		glutTimerFunc(time, AcyncTimer::timer, value);
 	}
-
 
 }

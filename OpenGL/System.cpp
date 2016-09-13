@@ -25,7 +25,11 @@ namespace opc {
 			using DisplayFuncPointer = void(*)();
 			DisplayFuncPointer* dp = displayFunction.target<DisplayFuncPointer>();
 			if (dp != nullptr)
-				glutDisplayFunc(*dp);
+			{
+				Display display(displayFunction);
+
+				glutDisplayFunc(Display::display);;
+			}
 		}
 
 		if (timerFunction)

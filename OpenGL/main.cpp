@@ -4,7 +4,7 @@ int x = -320;
 
 void display(void)
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT);
 
 	glColor3f(255, 255, 255);
 	glPointSize(1);
@@ -21,8 +21,8 @@ void display(void)
 	glVertex2f(0.5, 0.5);
 	glEnd();
 
-	glutSwapBuffers();
-	glFlush();
+	//glutSwapBuffers();
+	//glFlush();
 }
 
 void timer(int value) {

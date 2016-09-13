@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "Display.hpp"
 #include "AcyncTimer.hpp"
 #include "Point.hpp"
 #include "Size.hpp"
