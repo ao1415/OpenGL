@@ -30,6 +30,9 @@
     <Filter Include="ソース ファイル\OpenGL\System\Display">
       <UniqueIdentifier>{7752f9b4-4867-46f9-9789-d41f85d948ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Draw">
+      <UniqueIdentifier>{65f799bf-9517-4be5-9a40-3553479f4075}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -59,6 +62,9 @@
     <ClCompile Include="Display.cpp">
       <Filter>ソース ファイル\OpenGL\System\Display</Filter>
     </ClCompile>
+    <ClCompile Include="Draw.cpp">
+      <Filter>ソース ファイル\OpenGL\Draw</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGL.hpp">
@@ -84,6 +90,9 @@
     </ClInclude>
     <ClInclude Include="Display.hpp">
       <Filter>ソース ファイル\OpenGL\System\Display</Filter>
+    </ClInclude>
+    <ClInclude Include="Draw.hpp">
+      <Filter>ソース ファイル\OpenGL\Draw</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
