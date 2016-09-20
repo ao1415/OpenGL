@@ -14,7 +14,7 @@ namespace opc {
 		Color(const byte _r, const byte _g, const byte _b, const byte _a);
 		Color(unsigned int code);
 		Color(unsigned int code, const byte alpha);
-
+		Color(const Color& _c, const byte _a);
 
 		byte r = 0;
 		byte g = 0;

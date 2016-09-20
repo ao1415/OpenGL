@@ -14,7 +14,7 @@ namespace opc {
 	void System::create() {
 		glutInitDisplayMode(displayMode);
 
-		glutInitWindowSize(size.width, size.height);
+		glutInitWindowSize((int)size.width, (int)size.height);
 		glutCreateWindow(title.c_str());//ここでウインドウを作成している
 		glClearColor(GLclampf(clearColor.r / 255.0), GLclampf(clearColor.g / 255.0), GLclampf(clearColor.b / 255.0), GLclampf(clearColor.a / 255.0));
 

@@ -14,5 +14,11 @@ namespace opc{
 		r = (0x00ff0000 & code) >> 16;
 		a = alpha;
 	}
+	Color::Color(const Color& _c, const byte _a) {
+		r = _c.r;
+		g = _c.g;
+		b = _c.b;
+		a = _a;
+	}
 
 }

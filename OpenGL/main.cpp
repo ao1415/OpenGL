@@ -10,6 +10,12 @@ void display(void)
 
 	Line(IntPoint(-160, 120), IntPoint(160, -120)).draw(8, Palette::Red);
 
+	Triangle(IntPoint(0, 0), IntPoint(0, 80), IntPoint(80, 80)).draw(Palette::Green);
+	Quad(IntPoint(0, 0), IntPoint(0, -80), IntPoint(-80, -80), IntPoint(-80, 0)).draw(Palette::Yellow);
+
+	Rect(IntPoint(-40, -40), Size(80, 60)).draw(Palette::Gray);
+	Rect(IntPoint(-40, -20), Size(80, 60)).draw(Color(Palette::White, 127));
+
 }
 
 void timer(int value) {

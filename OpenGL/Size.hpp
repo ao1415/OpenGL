@@ -8,9 +8,10 @@ namespace opc {
 	struct Size {
 		Size();
 		Size(const int w, const int h);
+		Size(const double w, const double h);
 
-		int width = 0;
-		int height = 0;
+		double width = 0;
+		double height = 0;
 	};
 
 	template <class CharType>

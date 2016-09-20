@@ -79,10 +79,15 @@ namespace opc {
 		x = p.x; y = p.y;
 	}
 
-	/// <summary>®”‚É•ÏŠ·‚µ‚½À•W‚ğ•Ô‚·</summary>
-	/// <returns>IntPoint</returns>
 	const IntPoint RealPoint::integer() const {
 		return IntPoint((int)x, (int)y);
+	}
+
+	const RealPoint operator+(const IntPoint& p1, const RealPoint& p2) {
+		return RealPoint(p1.x + p2.x, p1.y + p2.y);
+	}
+	const RealPoint operator+(const RealPoint& p1, const IntPoint& p2) {
+		return RealPoint(p1.x + p2.x, p1.y + p2.y);
 	}
 
 }

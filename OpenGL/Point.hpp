@@ -62,4 +62,7 @@ namespace opc {
 		return os << CharType('(') << v.x << CharType(',') << v.y << CharType(')');
 	}
 
+	const RealPoint operator+(const IntPoint& p1, const RealPoint& p2);
+	const RealPoint operator+(const RealPoint& p1, const IntPoint& p2);
+
 }
