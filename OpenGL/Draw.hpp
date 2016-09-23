@@ -101,6 +101,7 @@ namespace opc {
 
 	};
 	
+	/// <summary>’·•ûŒ`‚ğ•`‰æ‚·‚éƒNƒ‰ƒX</summary>
 	class Rect : public Quad {
 	public:
 

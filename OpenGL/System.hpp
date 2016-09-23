@@ -46,13 +46,13 @@ namespace opc {
 		/// <param name="r">赤色成分(0～255)</param>
 		/// <param name="g">緑色成分(0～255)</param>
 		/// <param name="b">青色成分(0～255)</param>
-		void setClearColor(const byte r, const byte g, const byte b);
+		void setClearColor(const int r, const int g, const int b);
 		/// <summary>画面がクリアされるときの色を設定する</summary>
 		/// <param name="r">赤色成分(0～255)</param>
 		/// <param name="g">緑色成分(0～255)</param>
 		/// <param name="b">青色成分(0～255)</param>
 		/// <param name="a">透明度(0～255)</param>
-		void setClearColor(const byte r, const byte g, const byte b, const byte a);
+		void setClearColor(const int r, const int g, const int b, const int a);
 		/// <summary>画面がクリアされるときの色を設定する</summary>
 		/// <param name="_color">色</param>
 		void setClearColor(const Color& _color);

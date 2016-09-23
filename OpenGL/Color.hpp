@@ -10,11 +10,11 @@ namespace opc {
 	struct Color {
 
 		Color();
-		Color(const byte _r, const byte _g, const byte _b);
-		Color(const byte _r, const byte _g, const byte _b, const byte _a);
+		Color(const int _r, const int _g, const int _b);
+		Color(const int _r, const int _g, const int _b, const int _a);
 		Color(unsigned int code);
-		Color(unsigned int code, const byte alpha);
-		Color(const Color& _c, const byte _a);
+		Color(unsigned int code, const int alpha);
+		Color(const Color& _c, const int _a);
 
 		byte r = 0;
 		byte g = 0;

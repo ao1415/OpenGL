@@ -59,10 +59,10 @@ namespace opc {
 		title = name;
 	}
 
-	void System::setClearColor(const byte r, const byte g, const byte b) {
+	void System::setClearColor(const int r, const int g, const int b) {
 		setClearColor(Color(r, g, b));
 	}
-	void System::setClearColor(const byte r, const byte g, const byte b, const byte a) {
+	void System::setClearColor(const int r, const int g, const int b, const int a) {
 		setClearColor(Color(r, g, b, a));
 	}
 	void System::setClearColor(const Color& _color) {

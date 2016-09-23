@@ -1,41 +1,82 @@
 #include "OpenGL.hpp"
 
-int x = -320;
+const double vertex[] = {
+	3.1 , 1.9 , -3 , 4.5 , 0.1 , -3 , 6 , 1.9 , -3 ,
+	0.1 , 1.9 , -2 , 1.5 , 0.1 , -2 , 3 , 1.9 , -2
+};
 
 void display(void)
 {
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, vertex);
 
-	Pixel(IntPoint(0, 0)).draw(4, Palette::Blue);
-	Pixel(IntPoint(160, 120)).draw(8, Palette::White);
-
-	Line(IntPoint(-160, 120), IntPoint(160, -120)).draw(8, Palette::Red);
-
-	Triangle(IntPoint(0, 0), IntPoint(0, 80), IntPoint(80, 80)).draw(Palette::Green);
-	Quad(IntPoint(0, 0), IntPoint(0, -80), IntPoint(-80, -80), IntPoint(-80, 0)).draw(Palette::Yellow);
-
-	Rect(IntPoint(-40, -40), Size(80, 60)).draw(Palette::Gray);
-	Rect(IntPoint(-40, -20), Size(80, 60)).draw(Color(Palette::White, 127));
-
+	glBegin(GL_TRIANGLES); {
+		int i;
+		glColor3f(0, 0, 1);
+		for (i = 0; i < 3; i++) glArrayElement(i);
+		glColor3f(1, 0, 0);
+		for (i = 3; i < 6; i++) glArrayElement(i);
+	} glEnd();
 }
 
 void timer(int value) {
 
-	x += 2;
+	//glRotatef(1, 0, 1, 0);
 
 	glutPostRedisplay();
 }
 
+void disp(void) {
+	glClear(GL_COLOR_BUFFER_BIT);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, vertex);
+
+	glBegin(GL_TRIANGLES); {
+		int i;
+		glColor3f(0, 0, 1);
+		for (i = 0; i < 3; i++) glArrayElement(i);
+		glColor3f(1, 0, 0);
+		for (i = 3; i < 6; i++) glArrayElement(i);
+	} glEnd();
+
+	glFlush();
+}
+
 int main(int argc, char *argv[])
 {
+	/*
 	System system;
 
 	system.setOrtho2D(RealPoint(0, 0), RealPoint(640, 480));
-	system.setOrtho2D(RealPoint(-320, -240), RealPoint(320, 240));
+	system.setOrtho2D(RealPoint(-10, -10), RealPoint(10, 10));
 
 	system.setDisplayFunc(display);
-	system.setTimerFunc(16, timer, 0);
+	//system.setTimerFunc(10, timer, 0);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glFrustum(0, 4, 2, 0, 2, 10);
 
 	system.create();
+
+	/*/
+	glutInit(&argc, argv);
+	glutInitWindowPosition(100, 50);
+	glutInitWindowSize(400, 300);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
+
+	glutCreateWindow("Kitty on your lap");
+	glutDisplayFunc(disp);
+
+	//gluOrtho2D(-10, 10, -10, 10);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glFrustum(0, 4, 2, 0, 2, 10);
+	//glOrtho(0, 4, 2, 0, 2, 10);
+
+	glutMainLoop();
+	//*/
 
 	return 0;
 }
