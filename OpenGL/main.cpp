@@ -7,16 +7,9 @@ const double vertex[] = {
 
 void display(void)
 {
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glVertexPointer(3, GL_FLOAT, 0, vertex);
 
-	glBegin(GL_TRIANGLES); {
-		int i;
-		glColor3f(0, 0, 1);
-		for (i = 0; i < 3; i++) glArrayElement(i);
-		glColor3f(1, 0, 0);
-		for (i = 3; i < 6; i++) glArrayElement(i);
-	} glEnd();
+	Rect(-8, -8, 16, 16).draw();
+
 }
 
 void timer(int value) {
@@ -44,14 +37,14 @@ void disp(void) {
 
 int main(int argc, char *argv[])
 {
-	/*
+	//*
 	System system;
 
-	system.setOrtho2D(RealPoint(0, 0), RealPoint(640, 480));
-	system.setOrtho2D(RealPoint(-10, -10), RealPoint(10, 10));
+	Window::setOrtho2D(RealPoint(0, 0), RealPoint(640, 480));
+	Window::setOrtho2D(RealPoint(-10, -10), RealPoint(10, 10));
 
 	system.setDisplayFunc(display);
-	//system.setTimerFunc(10, timer, 0);
+	system.setTimerFunc(10, timer, 0);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();

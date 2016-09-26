@@ -24,17 +24,6 @@ namespace opc {
 		///	</summary>
 		void create();
 
-		/// <summary>ウインドウの座標を設定する</summary>
-		/// <param name="left">左端の座標値</param>
-		/// <param name="right">右端の座標値</param>
-		/// <param name="bottom">下端の座標値</param>
-		/// <param name="top">上端の座標値</param>
-		void setOrtho2D(const double left, const double right, const double bottom, const double top);
-		/// <summary>ウインドウの座標を設定する</summary>
-		/// <param name="left_top">左上の座標値</param>
-		/// <param name="right_bottom">右下の座標値</param>
-		void setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom);
-
 		/// <summary>ディスプレイモードの設定</summary>
 		/// <param name="mode">ディスプレイモードのフラグ</param>
 		void setDisplayMode(const unsigned int mode);
@@ -56,12 +45,6 @@ namespace opc {
 
 		unsigned int displayMode;
 
-		/// <summary>
-		/// <para>0:右上の座標</para>
-		/// <para>1:左下の座標</para>
-		/// </summary>
-		RealPoint ortho2DPoint[2];
-
 		std::function<void()> displayFunction;
 		std::function<void(int)> timerFunction;
 
@@ -74,8 +57,8 @@ namespace opc {
 
 			displayMode = GLUT_RGBA | GLUT_DOUBLE;
 
-			ortho2DPoint[0] = IntPoint(0, 0);
-			ortho2DPoint[1] = IntPoint(640, 480);
+			Window::ortho2DPoint[0] = IntPoint(0, 0);
+			Window::ortho2DPoint[1] = IntPoint(640, 480);
 
 			AcyncTimer::time = 16;
 			AcyncTimer::value = 0;

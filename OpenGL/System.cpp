@@ -20,7 +20,7 @@ namespace opc {
 		glutCreateWindow(Window::title.c_str());//ここでウインドウを作成している
 		glClearColor(GLclampf(Window::clearColor.r / 255.0), GLclampf(Window::clearColor.g / 255.0), GLclampf(Window::clearColor.b / 255.0), GLclampf(Window::clearColor.a / 255.0));
 
-		gluOrtho2D(GLdouble(ortho2DPoint[0].x), GLdouble(ortho2DPoint[1].x), GLdouble(ortho2DPoint[1].y), GLdouble(ortho2DPoint[0].y));//一度決めたら変更できない模様
+		gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));//一度決めたら変更できない模様
 
 		if (displayFunction)
 		{
@@ -48,13 +48,6 @@ namespace opc {
 
 		glutMainLoop();//メインループ
 
-	}
-
-	void System::setOrtho2D(const double left, const double right, const double bottom, const double top) {
-		setOrtho2D(RealPoint(left, top), RealPoint(right, bottom));
-	}
-	void System::setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom) {
-		ortho2DPoint[0] = left_top; ortho2DPoint[1] = right_bottom;
 	}
 
 	void System::setDisplayMode(const unsigned int mode) {
