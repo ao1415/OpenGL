@@ -1,12 +1,6 @@
 #pragma once
 
-#include <string>
-
-#include "Display.hpp"
-#include "AcyncTimer.hpp"
-#include "Point.hpp"
-#include "Size.hpp"
-#include "Palette.hpp"
+#include "Window.hpp"
 
 namespace opc {
 
@@ -29,33 +23,6 @@ namespace opc {
 		///	<para>実行後は各種設定の変更は行えません</para>
 		///	</summary>
 		void create();
-
-		/// <summary>ウインドウの大きさを設定する</summary>
-		/// <param name="width">横幅</param>
-		/// <param name="height">高さ</param>
-		void setSize(const int width, const int height);
-		/// <summary>ウインドウの大きさを設定する</summary>
-		/// <param name="_size">大きさ</param>
-		void setSize(const Size& _size);
-
-		/// <summary>ウインドウのタイトルを設定する</summary>
-		/// <param name="name">タイトル</param>
-		void setTitle(const std::string& name);
-
-		/// <summary>画面がクリアされるときの色を設定する</summary>
-		/// <param name="r">赤色成分(0～255)</param>
-		/// <param name="g">緑色成分(0～255)</param>
-		/// <param name="b">青色成分(0～255)</param>
-		void setClearColor(const int r, const int g, const int b);
-		/// <summary>画面がクリアされるときの色を設定する</summary>
-		/// <param name="r">赤色成分(0～255)</param>
-		/// <param name="g">緑色成分(0～255)</param>
-		/// <param name="b">青色成分(0～255)</param>
-		/// <param name="a">透明度(0～255)</param>
-		void setClearColor(const int r, const int g, const int b, const int a);
-		/// <summary>画面がクリアされるときの色を設定する</summary>
-		/// <param name="_color">色</param>
-		void setClearColor(const Color& _color);
 
 		/// <summary>ウインドウの座標を設定する</summary>
 		/// <param name="left">左端の座標値</param>
@@ -87,10 +54,6 @@ namespace opc {
 
 	private:
 
-		Size size;
-		std::string title;
-		Color clearColor;
-
 		unsigned int displayMode;
 
 		/// <summary>
@@ -105,9 +68,9 @@ namespace opc {
 
 		/// <summary>初期設定</summary>
 		void init() {
-			size = Size(640, 480);
-			title = "OpenGL";
-			clearColor = Palette::Black;
+			Window::size = Size(640, 480);
+			Window::title = "OpenGL";
+			Window::clearColor = Palette::Black;
 
 			displayMode = GLUT_RGBA | GLUT_DOUBLE;
 

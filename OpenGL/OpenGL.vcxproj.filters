@@ -33,6 +33,15 @@
     <Filter Include="ソース ファイル\OpenGL\Draw">
       <UniqueIdentifier>{65f799bf-9517-4be5-9a40-3553479f4075}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\System\Window">
+      <UniqueIdentifier>{18f5b44f-80ef-4738-bad2-070b98be1149}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\System\State">
+      <UniqueIdentifier>{feabbfea-2f7d-4134-bac7-d19d80e241c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Exception">
+      <UniqueIdentifier>{d5d46634-80d3-4462-85d4-49d75ceb66e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -65,6 +74,15 @@
     <ClCompile Include="Draw.cpp">
       <Filter>ソース ファイル\OpenGL\Draw</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>ソース ファイル\OpenGL\System\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemState.cpp">
+      <Filter>ソース ファイル\OpenGL\System\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>ソース ファイル\OpenGL\Exception</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGL.hpp">
@@ -93,6 +111,15 @@
     </ClInclude>
     <ClInclude Include="Draw.hpp">
       <Filter>ソース ファイル\OpenGL\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.hpp">
+      <Filter>ソース ファイル\OpenGL\System\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemState.hpp">
+      <Filter>ソース ファイル\OpenGL\System\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.hpp">
+      <Filter>ソース ファイル\OpenGL\Exception</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
