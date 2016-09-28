@@ -17,10 +17,18 @@ namespace opc {
 		glutInitDisplayMode(displayMode);
 
 		glutInitWindowSize((int)Window::size.width, (int)Window::size.height);
-		glutCreateWindow(Window::title.c_str());//ここでウインドウを作成している
+
+		//ここでウインドウを作成している
+		glutCreateWindow(Window::title.c_str());
+
 		glClearColor(GLclampf(Window::clearColor.r / 255.0), GLclampf(Window::clearColor.g / 255.0), GLclampf(Window::clearColor.b / 255.0), GLclampf(Window::clearColor.a / 255.0));
 
-		gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));//一度決めたら変更できない模様
+		if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_2D))
+		{
+			//一度決めたら変更できない模様
+			gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));
+		}
+
 
 		if (displayFunction)
 		{

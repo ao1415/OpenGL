@@ -42,6 +42,9 @@
     <Filter Include="ソース ファイル\OpenGL\Exception">
       <UniqueIdentifier>{d5d46634-80d3-4462-85d4-49d75ceb66e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Point\Vector">
+      <UniqueIdentifier>{7ff2bd42-e091-4c8a-ac43-717559c79965}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -83,6 +86,9 @@
     <ClCompile Include="Exception.cpp">
       <Filter>ソース ファイル\OpenGL\Exception</Filter>
     </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>ソース ファイル\OpenGL\Point\Vector</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGL.hpp">
@@ -120,6 +126,9 @@
     </ClInclude>
     <ClInclude Include="Exception.hpp">
       <Filter>ソース ファイル\OpenGL\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.hpp">
+      <Filter>ソース ファイル\OpenGL\Point\Vector</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

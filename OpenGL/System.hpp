@@ -57,8 +57,8 @@ namespace opc {
 
 			displayMode = GLUT_RGBA | GLUT_DOUBLE;
 
-			Window::ortho2DPoint[0] = IntPoint(0, 0);
-			Window::ortho2DPoint[1] = IntPoint(640, 480);
+			//Window::ortho2DPoint[0] = IntPoint(0, 0);
+			//Window::ortho2DPoint[1] = IntPoint(640, 480);
 
 			AcyncTimer::time = 16;
 			AcyncTimer::value = 0;

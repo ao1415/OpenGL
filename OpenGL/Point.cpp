@@ -36,9 +36,6 @@ namespace opc {
 	void IntPoint::operator/=(const int v) {
 		(*this) = (*this) / v;
 	}
-}
-
-namespace opc {
 
 	RealPoint::RealPoint() {
 
