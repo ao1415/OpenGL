@@ -6,6 +6,7 @@
 #include "AcyncTimer.hpp"
 #include "Palette.hpp"
 #include "Point.hpp"
+#include "Vector.hpp"
 #include "Size.hpp"
 #include "SystemState.hpp"
 
@@ -53,6 +54,19 @@ namespace opc {
 		/// <param name="right_bottom">右下の座標値</param>
 		static void setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom);
 
+		/// <summary>ウインドウの座標を設定する</summary>
+		/// <param name="left">左端の座標値</param>
+		/// <param name="right">右端の座標値</param>
+		/// <param name="bottom">下端の座標値</param>
+		/// <param name="top">上端の座標値</param>
+		/// <param name="zNear">手前の座標値</param>
+		/// <param name="zFar">奥の座標値</param>
+		static void setOrtho3D(const double left, const double right, const double bottom, const double top, const double zNear, const double zFar);
+		/// <summary>ウインドウの座標を設定する</summary>
+		/// <param name="left_top">手前左上の座標値</param>
+		/// <param name="right_bottom">奥右下の座標値</param>
+		static void setOrtho3D(const RealVector& left_top_near, const RealVector& right_bottom_far);
+
 		friend System;
 
 	private:
@@ -62,10 +76,16 @@ namespace opc {
 		static Color clearColor;
 
 		/// <summary>
-		/// <para>0:右上の座標</para>
-		/// <para>1:左下の座標</para>
+		/// <para>0:左上の座標</para>
+		/// <para>1:右下の座標</para>
 		/// </summary>
 		static RealPoint ortho2DPoint[2];
+
+		/// <summary>
+		/// <para>0:手前左上のの座標</para>
+		/// <para>1:奥右下の座標</para>
+		/// </summary>
+		static RealVector ortho3DPoint[2];
 
 	};
 

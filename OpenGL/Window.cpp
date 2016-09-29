@@ -6,6 +6,7 @@ namespace opc {
 	std::string Window::title;
 	Color Window::clearColor;
 	RealPoint Window::ortho2DPoint[2];
+	RealVector Window::ortho3DPoint[2];
 
 	void Window::setSize(const int width, const int height) {
 		size = Size(width, height);
@@ -40,7 +41,20 @@ namespace opc {
 	void Window::setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom) {
 		if (SystemState::getMakeWindow())
 			throw SettingErrer("画面の座標値を変更できませんでした");
+
+		SystemState::setStandardPoint(SystemState::StandardPoint::Mode_2D);
 		ortho2DPoint[0] = left_top; ortho2DPoint[1] = right_bottom;
+	}
+
+	void Window::setOrtho3D(const double left, const double right, const double bottom, const double top, const double zNear, const double zFar) {
+		setOrtho3D(RealVector(left, top, zNear), RealVector(right, bottom, zFar));
+	}
+	void Window::setOrtho3D(const RealVector& left_top_near, const RealVector& right_bottom_far) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("画面の座標値を変更できませんでした");
+
+		SystemState::setStandardPoint(SystemState::StandardPoint::Mode_3D);
+		ortho3DPoint[0] = left_top_near; ortho3DPoint[1] = right_bottom_far;
 	}
 
 }

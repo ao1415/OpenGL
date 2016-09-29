@@ -5,6 +5,7 @@
 namespace opc {
 
 	class System;
+	class Window;
 
 	class SystemState {
 	public:
@@ -22,6 +23,7 @@ namespace opc {
 		}
 
 		friend System;
+		friend Window;
 
 	private:
 
@@ -30,7 +32,9 @@ namespace opc {
 
 		/// <summary>À•W‚Ìİ’è‚Ìƒtƒ‰ƒO</summary>
 		static unsigned char standardPoint;
-		
+
+		inline static void setStandardPoint(const StandardPoint& s) { standardPoint = (char)s; }
+
 	};
 
 }

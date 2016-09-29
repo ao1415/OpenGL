@@ -12,6 +12,7 @@ namespace opc {
 	}
 
 	void System::create() {
+
 		SystemState::makeWindow = true;
 
 		glutInitDisplayMode(displayMode);
@@ -22,13 +23,6 @@ namespace opc {
 		glutCreateWindow(Window::title.c_str());
 
 		glClearColor(GLclampf(Window::clearColor.r / 255.0), GLclampf(Window::clearColor.g / 255.0), GLclampf(Window::clearColor.b / 255.0), GLclampf(Window::clearColor.a / 255.0));
-
-		if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_2D))
-		{
-			//一度決めたら変更できない模様
-			gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));
-		}
-
 
 		if (displayFunction)
 		{
@@ -52,6 +46,18 @@ namespace opc {
 
 				glutTimerFunc(AcyncTimer::time, AcyncTimer::timer, AcyncTimer::value);
 			}
+		}
+
+		if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_2D))
+		{
+			//一度決めたら変更できない模様
+			gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));
+		}
+		else if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_3D))
+		{
+			glFrustum(GLdouble(Window::ortho3DPoint[0].x), GLdouble(Window::ortho3DPoint[1].x),
+				GLdouble(Window::ortho3DPoint[1].y), GLdouble(Window::ortho3DPoint[0].y),
+				GLdouble(Window::ortho3DPoint[0].z), GLdouble(Window::ortho3DPoint[1].z));
 		}
 
 		glutMainLoop();//メインループ
