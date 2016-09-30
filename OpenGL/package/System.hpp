@@ -4,6 +4,32 @@
 
 namespace opc {
 
+	/// <summary>ディスプレイの設定コマンド</summary>
+	enum class DisplayMode : unsigned int {
+		/// <summary>RGBAモード</summary>
+		RGBA = GLUT_RGBA,
+		/// <summary>RGBモード</summary>
+		RGB = GLUT_RGB,
+		/// <summary>カラーインデックスモード</summary>
+		Index = GLUT_INDEX,
+		/// <summary>シングルバッファモード</summary>
+		Single = GLUT_SINGLE,
+		/// <summary>ダブルバッファモード</summary>
+		Double = GLUT_DOUBLE,
+		/// <summary>アキュムレーションバッファ</summary>
+		Accum = GLUT_ACCUM,
+		/// <summary>カラーバッファにアルファ成分を加える</summary>
+		Alpha = GLUT_ALPHA,
+		/// <summary>ディプス(Z)バッファを加える</summary>
+		Depth = GLUT_DEPTH,
+		/// <summary>マルチサンプリングのサポート</summary>
+		Stencil = GLUT_STENCIL,
+		/// <summary></summary>
+		MultiSample = GLUT_MULTISAMPLE,
+		/// <summary>ステレオ・ウインドウビットマスク</summary>
+		Stereo = GLUT_STEREO
+	};
+
 	/// <summary>
 	///	<para>OpenGLをパッケージしたクラス</para>
 	///	<para>各種初期設定を行った後に、windowCreateを実行してください</para>
@@ -27,6 +53,12 @@ namespace opc {
 		/// <summary>ディスプレイモードの設定</summary>
 		/// <param name="mode">ディスプレイモードのフラグ</param>
 		void setDisplayMode(const unsigned int mode);
+		/// <summary>ディスプレイモードの設定</summary>
+		/// <param name="...rest">DisplayMode</param>
+		template<typename... Rest>
+		void setDisplayMode(const Rest&... rest) {
+			displayMode = getDisplayMode(rest...);
+		}
 
 		/// <summary>描画関数を設定する</summary>
 		/// <param name="func">描画する関数ポインタ</param>
@@ -51,18 +83,23 @@ namespace opc {
 
 		/// <summary>初期設定</summary>
 		void init() {
-			Window::size = Size(640, 480);
-			Window::title = "OpenGL";
-			Window::clearColor = Palette::Black;
-
-			displayMode = GLUT_RGBA | GLUT_DOUBLE;
-
-			//Window::ortho2DPoint[0] = IntPoint(0, 0);
-			//Window::ortho2DPoint[1] = IntPoint(640, 480);
+			
+			Window::setSize(Size(640, 480));
+			Window::setTitle("OpenGL");
+			Window::setClearColor(Palette::Black);
+			setDisplayMode(DisplayMode::RGBA, DisplayMode::Double);
 
 			AcyncTimer::time = 16;
 			AcyncTimer::value = 0;
 
+		}
+
+		template<typename First,typename... Rest>
+		const unsigned int getDisplayMode(const First& first, const Rest&... rest) {
+			return (unsigned int)first | getDisplayMode(rest...);
+		}
+		inline const unsigned int getDisplayMode() {
+			return 0;
 		}
 
 	};

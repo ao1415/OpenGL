@@ -53,6 +53,10 @@ int main(int argc, char *argv[])
 	//*
 	System system;
 
+	//system.setDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH);
+
+	system.setDisplayMode(DisplayMode::RGBA, DisplayMode::Double, DisplayMode::Alpha, DisplayMode::Depth);
+
 	system.setDisplayFunc(display);
 	system.setTimerFunc(10, timer, 0);
 
