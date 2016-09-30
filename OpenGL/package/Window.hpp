@@ -43,18 +43,18 @@ namespace opc {
 		/// <param name="_color">色</param>
 		static void setClearColor(const Color& _color);
 
-		/// <summary>ウインドウの座標を設定する</summary>
+		/// <summary>ウインドウの座標を設定する(2D座標)</summary>
 		/// <param name="left">左端の座標値</param>
 		/// <param name="right">右端の座標値</param>
 		/// <param name="bottom">下端の座標値</param>
 		/// <param name="top">上端の座標値</param>
 		static void setOrtho2D(const double left, const double right, const double bottom, const double top);
-		/// <summary>ウインドウの座標を設定する</summary>
+		/// <summary>ウインドウの座標を設定する(2D座標)</summary>
 		/// <param name="left_top">左上の座標値</param>
 		/// <param name="right_bottom">右下の座標値</param>
 		static void setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom);
 
-		/// <summary>ウインドウの座標を設定する</summary>
+		/// <summary>ウインドウの座標を設定する(3D座標)</summary>
 		/// <param name="left">左端の座標値</param>
 		/// <param name="right">右端の座標値</param>
 		/// <param name="bottom">下端の座標値</param>
@@ -62,7 +62,7 @@ namespace opc {
 		/// <param name="zNear">手前の座標値</param>
 		/// <param name="zFar">奥の座標値</param>
 		static void setOrtho3D(const double left, const double right, const double bottom, const double top, const double zNear, const double zFar);
-		/// <summary>ウインドウの座標を設定する</summary>
+		/// <summary>ウインドウの座標を設定する(3D座標)</summary>
 		/// <param name="left_top">手前左上の座標値</param>
 		/// <param name="right_bottom">奥右下の座標値</param>
 		static void setOrtho3D(const RealVector& left_top_near, const RealVector& right_bottom_far);

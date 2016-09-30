@@ -1,4 +1,4 @@
-#include "System.hpp"
+#include "OpenGL.hpp"
 
 namespace opc {
 

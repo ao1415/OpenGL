@@ -50,7 +50,6 @@ namespace opc {
 
 		if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_2D))
 		{
-			//一度決めたら変更できない模様
 			gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));
 		}
 		else if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_3D))
@@ -60,7 +59,8 @@ namespace opc {
 				GLdouble(Window::ortho3DPoint[0].z), GLdouble(Window::ortho3DPoint[1].z));
 		}
 
-		glutMainLoop();//メインループ
+		//メインループ
+		glutMainLoop();
 
 	}
 

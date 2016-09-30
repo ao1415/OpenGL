@@ -15,6 +15,9 @@
     <Filter Include="ソース ファイル\OpenGL\Point">
       <UniqueIdentifier>{1c4fb158-25b2-488c-b934-48eb104128eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Point\Vector">
+      <UniqueIdentifier>{7ff2bd42-e091-4c8a-ac43-717559c79965}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ソース ファイル\OpenGL\Size">
       <UniqueIdentifier>{7fe62756-ed7f-4c76-beaf-3d8101ca5e7e}</UniqueIdentifier>
     </Filter>
@@ -30,20 +33,17 @@
     <Filter Include="ソース ファイル\OpenGL\System\Display">
       <UniqueIdentifier>{7752f9b4-4867-46f9-9789-d41f85d948ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\OpenGL\Draw">
-      <UniqueIdentifier>{65f799bf-9517-4be5-9a40-3553479f4075}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\OpenGL\System\Window">
       <UniqueIdentifier>{18f5b44f-80ef-4738-bad2-070b98be1149}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\OpenGL\System\State">
       <UniqueIdentifier>{feabbfea-2f7d-4134-bac7-d19d80e241c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Draw">
+      <UniqueIdentifier>{65f799bf-9517-4be5-9a40-3553479f4075}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ソース ファイル\OpenGL\Exception">
       <UniqueIdentifier>{d5d46634-80d3-4462-85d4-49d75ceb66e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\OpenGL\Point\Vector">
-      <UniqueIdentifier>{7ff2bd42-e091-4c8a-ac43-717559c79965}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,82 +53,82 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="package\AcyncTimer.cpp">
+      <Filter>ソース ファイル\OpenGL\System\AcyncTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Color.cpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Display.cpp">
+      <Filter>ソース ファイル\OpenGL\System\Display</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Draw.cpp">
+      <Filter>ソース ファイル\OpenGL\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Exception.cpp">
+      <Filter>ソース ファイル\OpenGL\Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Point.cpp">
+      <Filter>ソース ファイル\OpenGL\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Size.cpp">
+      <Filter>ソース ファイル\OpenGL\Size</Filter>
+    </ClCompile>
+    <ClCompile Include="package\System.cpp">
+      <Filter>ソース ファイル\OpenGL\System</Filter>
+    </ClCompile>
+    <ClCompile Include="package\SystemState.cpp">
+      <Filter>ソース ファイル\OpenGL\System\State</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Vector.cpp">
+      <Filter>ソース ファイル\OpenGL\Point\Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Window.cpp">
+      <Filter>ソース ファイル\OpenGL\System\Window</Filter>
+    </ClCompile>
     <ClCompile Include="OpenGL.cpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="Point.cpp">
-      <Filter>ソース ファイル\OpenGL\Point</Filter>
-    </ClCompile>
-    <ClCompile Include="Size.cpp">
-      <Filter>ソース ファイル\OpenGL\Size</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>ソース ファイル\OpenGL\Color</Filter>
-    </ClCompile>
-    <ClCompile Include="System.cpp">
-      <Filter>ソース ファイル\OpenGL\System</Filter>
-    </ClCompile>
-    <ClCompile Include="AcyncTimer.cpp">
-      <Filter>ソース ファイル\OpenGL\System\AcyncTimer</Filter>
-    </ClCompile>
-    <ClCompile Include="Display.cpp">
-      <Filter>ソース ファイル\OpenGL\System\Display</Filter>
-    </ClCompile>
-    <ClCompile Include="Draw.cpp">
-      <Filter>ソース ファイル\OpenGL\Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>ソース ファイル\OpenGL\System\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="SystemState.cpp">
-      <Filter>ソース ファイル\OpenGL\System\State</Filter>
-    </ClCompile>
-    <ClCompile Include="Exception.cpp">
-      <Filter>ソース ファイル\OpenGL\Exception</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>ソース ファイル\OpenGL\Point\Vector</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OpenGL.hpp">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="Point.hpp">
-      <Filter>ソース ファイル\OpenGL\Point</Filter>
-    </ClInclude>
-    <ClInclude Include="Size.hpp">
-      <Filter>ソース ファイル\OpenGL\Size</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.hpp">
-      <Filter>ソース ファイル\OpenGL\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="Palette.hpp">
-      <Filter>ソース ファイル\OpenGL\Color</Filter>
-    </ClInclude>
-    <ClInclude Include="System.hpp">
-      <Filter>ソース ファイル\OpenGL\System</Filter>
-    </ClInclude>
-    <ClInclude Include="AcyncTimer.hpp">
+    <ClInclude Include="package\AcyncTimer.hpp">
       <Filter>ソース ファイル\OpenGL\System\AcyncTimer</Filter>
     </ClInclude>
-    <ClInclude Include="Display.hpp">
+    <ClInclude Include="package\Color.hpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Display.hpp">
       <Filter>ソース ファイル\OpenGL\System\Display</Filter>
     </ClInclude>
-    <ClInclude Include="Draw.hpp">
+    <ClInclude Include="package\Draw.hpp">
       <Filter>ソース ファイル\OpenGL\Draw</Filter>
     </ClInclude>
-    <ClInclude Include="Window.hpp">
-      <Filter>ソース ファイル\OpenGL\System\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="SystemState.hpp">
-      <Filter>ソース ファイル\OpenGL\System\State</Filter>
-    </ClInclude>
-    <ClInclude Include="Exception.hpp">
+    <ClInclude Include="package\Exception.hpp">
       <Filter>ソース ファイル\OpenGL\Exception</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.hpp">
+    <ClInclude Include="package\Palette.hpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Point.hpp">
+      <Filter>ソース ファイル\OpenGL\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Size.hpp">
+      <Filter>ソース ファイル\OpenGL\Size</Filter>
+    </ClInclude>
+    <ClInclude Include="package\System.hpp">
+      <Filter>ソース ファイル\OpenGL\System</Filter>
+    </ClInclude>
+    <ClInclude Include="package\SystemState.hpp">
+      <Filter>ソース ファイル\OpenGL\System\State</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Vector.hpp">
       <Filter>ソース ファイル\OpenGL\Point\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Window.hpp">
+      <Filter>ソース ファイル\OpenGL\System\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL.hpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

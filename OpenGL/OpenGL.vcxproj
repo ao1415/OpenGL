@@ -149,34 +149,34 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AcyncTimer.cpp" />
-    <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="Draw.cpp" />
-    <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="package\AcyncTimer.cpp" />
+    <ClCompile Include="package\Color.cpp" />
+    <ClCompile Include="package\Display.cpp" />
+    <ClCompile Include="package\Draw.cpp" />
+    <ClCompile Include="package\Exception.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenGL.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Size.cpp" />
-    <ClCompile Include="System.cpp" />
-    <ClCompile Include="SystemState.cpp" />
-    <ClCompile Include="Vector.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="package\Point.cpp" />
+    <ClCompile Include="package\Size.cpp" />
+    <ClCompile Include="package\System.cpp" />
+    <ClCompile Include="package\SystemState.cpp" />
+    <ClCompile Include="package\Vector.cpp" />
+    <ClCompile Include="package\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AcyncTimer.hpp" />
-    <ClInclude Include="Color.hpp" />
-    <ClInclude Include="Display.hpp" />
-    <ClInclude Include="Draw.hpp" />
-    <ClInclude Include="Exception.hpp" />
+    <ClInclude Include="package\AcyncTimer.hpp" />
+    <ClInclude Include="package\Color.hpp" />
+    <ClInclude Include="package\Display.hpp" />
+    <ClInclude Include="package\Draw.hpp" />
+    <ClInclude Include="package\Exception.hpp" />
     <ClInclude Include="OpenGL.hpp" />
-    <ClInclude Include="Palette.hpp" />
-    <ClInclude Include="Point.hpp" />
-    <ClInclude Include="Size.hpp" />
-    <ClInclude Include="System.hpp" />
-    <ClInclude Include="SystemState.hpp" />
-    <ClInclude Include="Vector.hpp" />
-    <ClInclude Include="Window.hpp" />
+    <ClInclude Include="package\Palette.hpp" />
+    <ClInclude Include="package\Point.hpp" />
+    <ClInclude Include="package\Size.hpp" />
+    <ClInclude Include="package\System.hpp" />
+    <ClInclude Include="package\SystemState.hpp" />
+    <ClInclude Include="package\Vector.hpp" />
+    <ClInclude Include="package\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

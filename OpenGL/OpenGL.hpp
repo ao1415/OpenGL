@@ -1,8 +1,8 @@
 #pragma once
 
 #include <GL/glut.h> 
-#include "System.hpp"
-#include "Draw.hpp"
+#include "Package/System.hpp"
+#include "Package/Draw.hpp"
 
 #ifndef NO_OPC_USING_NAMESOACE
 using namespace opc;
