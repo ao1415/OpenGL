@@ -9,7 +9,7 @@ namespace opc {
 	RealVector Window::ortho3DPoint[2];
 
 	void Window::setSize(const int width, const int height) {
-		size = Size(width, height);
+		setSize(Size(width, height));
 	}
 	void Window::setSize(const Size& _size) {
 		if (SystemState::getMakeWindow())

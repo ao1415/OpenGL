@@ -45,6 +45,9 @@
     <Filter Include="ソース ファイル\OpenGL\Exception">
       <UniqueIdentifier>{d5d46634-80d3-4462-85d4-49d75ceb66e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Grid">
+      <UniqueIdentifier>{22ed8d84-53a7-4c06-9321-4c1511a9e0a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -129,6 +132,9 @@
     </ClInclude>
     <ClInclude Include="OpenGL.hpp">
       <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Grid.hpp">
+      <Filter>ソース ファイル\OpenGL\Grid</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

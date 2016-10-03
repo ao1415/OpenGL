@@ -9,10 +9,15 @@ const double vertex[] = {
 void display(void)
 {
 
-	Draw3D::Rect(RealVector(-1, 1, -5), RealVector(2, 2, 0)).draw();
-	Draw3D::Rect(RealVector(-1, 1, -3), RealVector(0, 2, -2)).draw(Palette::Gray);
-	Draw3D::Rect(RealVector(1, 1, -3), RealVector(0, 2, -2)).draw(Palette::Gray);
-	Draw3D::Rect(RealVector(-1, 1, -3), RealVector(2, 2, 0)).draw();
+	Draw3D::Rect(RealVector(-2, -6, -7), RealVector(4, 4, 0)).draw(Palette::White);
+	Draw3D::Rect(RealVector(-2, -6, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(2, -6, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(-2, -6, -3), RealVector(4, 4, 0)).draw(Palette::White);
+
+	Draw3D::Rect(RealVector(-2, 2, -7), RealVector(4, 4, 0)).draw(Palette::White);
+	Draw3D::Rect(RealVector(-2, 2, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(2, 2, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(-2, 2, -3), RealVector(4, 4, 0)).draw(Palette::White);
 
 }
 
@@ -52,7 +57,8 @@ int main(int argc, char *argv[])
 	system.setDisplayFunc(display);
 	system.setTimerFunc(10, timer, 0);
 
-	Window::setOrtho3D(RealVector(-4, -2, 1), RealVector(4, 2, 6));
+	Window::setSize(640, 640);
+	Window::setOrtho3D(RealVector(-4, -4, 1), RealVector(4, 4, 9));
 
 	glMatrixMode(GL_PROJECTION);
 	//glMatrixMode(GL_MODELVIEW);

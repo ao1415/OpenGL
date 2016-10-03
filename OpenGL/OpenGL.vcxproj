@@ -164,6 +164,7 @@
     <ClCompile Include="package\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="package\Grid.hpp" />
     <ClInclude Include="package\AcyncTimer.hpp" />
     <ClInclude Include="package\Color.hpp" />
     <ClInclude Include="package\Display.hpp" />
