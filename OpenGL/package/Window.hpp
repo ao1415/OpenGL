@@ -22,7 +22,7 @@ namespace opc {
 		static void setSize(const int width, const int height);
 		/// <summary>ウインドウの大きさを設定する</summary>
 		/// <param name="_size">大きさ</param>
-		static void setSize(const Size& _size);
+		static void setSize(const IntSize& _size);
 
 		/// <summary>ウインドウのタイトルを設定する</summary>
 		/// <param name="name">タイトル</param>
@@ -71,7 +71,7 @@ namespace opc {
 
 	private:
 
-		static Size size;
+		static IntSize size;
 		static std::string title;
 		static Color clearColor;
 

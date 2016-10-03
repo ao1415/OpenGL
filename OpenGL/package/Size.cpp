@@ -1,16 +1,21 @@
 #include "Size.hpp"
 
-#include <iostream>
-
 namespace opc {
 
-	Size::Size() {
+	IntSize::IntSize() {
 
 	}
-	Size::Size(const int w, const int h) : width(w), height(h) {
+	IntSize::IntSize(const int w, const int h) : width(w), height(h) {
 
 	}
-	Size::Size(const double w, const double h) : width(w), height(h) {
+
+	RealSize::RealSize() {
+
+	}
+	RealSize::RealSize(const int w, const int h) : width(w), height(h) {
+
+	}
+	RealSize::RealSize(const double w, const double h) : width(w), height(h) {
 
 	}
 

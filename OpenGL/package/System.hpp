@@ -2,6 +2,7 @@
 
 #include "Window.hpp"
 #include "Grid.hpp"
+#include "Matrix.hpp"
 
 namespace opc {
 
@@ -85,7 +86,7 @@ namespace opc {
 		/// <summary>èâä˙ê›íË</summary>
 		void init() {
 			
-			Window::setSize(Size(640, 480));
+			Window::setSize(IntSize(640, 480));
 			Window::setTitle("OpenGL");
 			Window::setClearColor(Palette::Black);
 			setDisplayMode(DisplayMode::RGBA, DisplayMode::Double);

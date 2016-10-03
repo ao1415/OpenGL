@@ -130,24 +130,24 @@ namespace opc {
 			glEnd();
 		}
 
-		Rect::Rect() : Rect(RealPoint(0, 0), Size(0, 0)) {
+		Rect::Rect() : Rect(RealPoint(0, 0), RealSize(0, 0)) {
 
 		}
 		Rect::Rect(const int x, const int y, const int width, const int height)
-			: Rect(RealPoint(x, y), Size(width, height)) {
+			: Rect(RealPoint(x, y), RealSize(width, height)) {
 
 		}
 		Rect::Rect(const double x, const double y, const double width, const double height)
-			: Rect(RealPoint(x, y), Size(width, height)) {
+			: Rect(RealPoint(x, y), RealSize(width, height)) {
 
 		}
-		Rect::Rect(const IntPoint& pos, const Size& size) {
+		Rect::Rect(const IntPoint& pos, const RealSize& size) {
 			points[0] = pos;
 			points[1] = pos + RealPoint(size.width, 0);
 			points[2] = pos + RealPoint(size.width, size.height);
 			points[3] = pos + RealPoint(0, size.height);
 		}
-		Rect::Rect(const RealPoint& pos, const Size& size) {
+		Rect::Rect(const RealPoint& pos, const RealSize& size) {
 			points[0] = pos;
 			points[1] = pos + RealPoint(size.width, 0);
 			points[2] = pos + RealPoint(size.width, size.height);

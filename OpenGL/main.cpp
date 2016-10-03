@@ -47,6 +47,7 @@ void disp(void) {
 
 int main(int argc, char *argv[])
 {
+
 	//*
 	System system;
 

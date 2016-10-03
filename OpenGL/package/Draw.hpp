@@ -110,8 +110,8 @@ namespace opc {
 			Rect();
 			Rect(const int x, const int y, const int width, const int height);
 			Rect(const double x, const double y, const double width, const double height);
-			Rect(const IntPoint& pos, const Size& size);
-			Rect(const RealPoint& pos, const Size& size);
+			Rect(const IntPoint& pos, const RealSize& size);
+			Rect(const RealPoint& pos, const RealSize& size);
 
 		};
 	}

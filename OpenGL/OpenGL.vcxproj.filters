@@ -136,5 +136,11 @@
     <ClInclude Include="package\Grid.hpp">
       <Filter>ソース ファイル\OpenGL\Grid</Filter>
     </ClInclude>
+    <ClInclude Include="package\Matrix.hpp">
+      <Filter>ソース ファイル\OpenGL\Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Property.hpp">
+      <Filter>ソース ファイル\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

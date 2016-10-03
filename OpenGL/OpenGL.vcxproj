@@ -164,6 +164,7 @@
     <ClCompile Include="package\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="package\Matrix.hpp" />
     <ClInclude Include="package\Grid.hpp" />
     <ClInclude Include="package\AcyncTimer.hpp" />
     <ClInclude Include="package\Color.hpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="OpenGL.hpp" />
     <ClInclude Include="package\Palette.hpp" />
     <ClInclude Include="package\Point.hpp" />
+    <ClInclude Include="package\Property.hpp" />
     <ClInclude Include="package\Size.hpp" />
     <ClInclude Include="package\System.hpp" />
     <ClInclude Include="package\SystemState.hpp" />

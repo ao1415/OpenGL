@@ -2,16 +2,16 @@
 
 namespace opc {
 
-	Size Window::size;
+	IntSize Window::size;
 	std::string Window::title;
 	Color Window::clearColor;
 	RealPoint Window::ortho2DPoint[2];
 	RealVector Window::ortho3DPoint[2];
 
 	void Window::setSize(const int width, const int height) {
-		setSize(Size(width, height));
+		setSize(IntSize(width, height));
 	}
-	void Window::setSize(const Size& _size) {
+	void Window::setSize(const IntSize& _size) {
 		if (SystemState::getMakeWindow())
 			throw SettingErrer("ëÂÇ´Ç≥ÇïœçXÇ≈Ç´Ç‹ÇπÇÒÇ≈ÇµÇΩ");
 		size = _size;
