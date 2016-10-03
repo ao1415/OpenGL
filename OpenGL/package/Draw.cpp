@@ -216,6 +216,97 @@ namespace opc {
 			glEnd();
 		}
 
+		Triangle::Triangle() : Triangle(RealVector(0, 0, 0), RealVector(0, 0, 0), RealVector(0, 0, 0)) {
+
+		}
+		Triangle::Triangle(const int x1, const int y1, const int z1, const int x2, const int y2, const int z2, const int x3, const int y3, const int z3)
+			: Triangle(RealVector(x1, y1, z1), RealVector(x2, y2, z2), RealVector(x3, y3, z3)) {
+
+		}
+		Triangle::Triangle(const double x1, const double y1, const double z1, const double x2, const double y2, const double z2, const double x3, const double y3, const double z3)
+			: Triangle(RealVector(x1, y1, z1), RealVector(x2, y2, z2), RealVector(x3, y3, z3)) {
+
+		}
+		Triangle::Triangle(const IntVector& v1, const IntVector& v2, const IntVector& v3) {
+			vectors[0] = v1; vectors[1] = v2; vectors[2] = v3;
+		}
+		Triangle::Triangle(const std::array<IntVector, 3>& vs) {
+			vectors[0] = vs[0]; vectors[1] = vs[1]; vectors[2] = vs[2];
+		}
+		Triangle::Triangle(const RealVector& v1, const RealVector& v2, const RealVector& v3) {
+			vectors[0] = v1; vectors[1] = v2; vectors[2] = v3;
+		}
+		Triangle::Triangle(const std::array<RealVector, 3>& vs) {
+			vectors = vs;
+		}
+
+		void Triangle::draw(const double size, const Color& color) const {
+			Paint::Color(color);
+			glBegin(GL_TRIANGLES);
+			glVertex3d(vectors[0].x, vectors[0].y, vectors[0].z);
+			glVertex3d(vectors[1].x, vectors[1].y, vectors[1].z);
+			glVertex3d(vectors[2].x, vectors[2].y, vectors[2].z);
+			glEnd();
+		}
+
+		Quad::Quad() : Quad(RealVector(0, 0, 0), RealVector(0, 0, 0), RealVector(0, 0, 0), RealVector(0, 0, 0)) {
+
+		}
+		Quad::Quad(const int x1, const int y1, const int z1, const int x2, const int y2, const int z2, const int x3, const int y3, const int z3, const int x4, const int y4, const int z4)
+			: Quad(RealVector(x1, y1, z1), RealVector(x2, y2, z2), RealVector(x3, y3, z3), RealVector(x4, y4, z4)) {
+
+		}
+		Quad::Quad(const double x1, const double y1, const double z1, const double x2, const double y2, const double z2, const double x3, const double y3, const double z3, const double x4, const double y4, const double z4)
+			: Quad(RealVector(x1, y1, z1), RealVector(x2, y2, z2), RealVector(x3, y3, z3), RealVector(x4, y4, z4)) {
+
+		}
+		Quad::Quad(const IntVector& v1, const IntVector& v2, const IntVector& v3, const IntVector& v4) {
+			vectors[0] = v1; vectors[1] = v2; vectors[2] = v3; vectors[3] = v4;
+		}
+		Quad::Quad(const std::array<IntVector, 4>& vs) {
+			vectors[0] = vs[0]; vectors[1] = vs[1]; vectors[2] = vs[2]; vectors[3] = vs[3];
+		}
+		Quad::Quad(const RealVector& v1, const RealVector& v2, const RealVector& v3, const RealVector& v4) {
+			vectors[0] = v1; vectors[1] = v2; vectors[2] = v3; vectors[3] = v4;
+		}
+		Quad::Quad(const std::array<RealVector, 4>& vs) {
+			vectors = vs;
+		}
+
+		void Quad::draw(const double size, const Color& color) const {
+			Paint::Color(color);
+			glBegin(GL_QUADS);
+			glVertex3d(vectors[0].x, vectors[0].y, vectors[0].z);
+			glVertex3d(vectors[1].x, vectors[1].y, vectors[1].z);
+			glVertex3d(vectors[2].x, vectors[2].y, vectors[2].z);
+			glVertex3d(vectors[3].x, vectors[3].y, vectors[3].z);
+			glEnd();
+		}
+
+		Rect::Rect() : Rect(RealVector(0, 0, 0), RealVector(0, 0, 0)) {
+
+		}
+		Rect::Rect(const int x, const int y, const int z, const int sx, const int sy, const int sz)
+			: Rect(RealVector(x, y, z), RealVector(sx, sy, sz)) {
+
+		}
+		Rect::Rect(const double x, const double y, const double z, const double sx, const double sy, const double sz)
+			: Rect(RealVector(x, y, z), RealVector(sx, sy, sz)) {
+
+		}
+		Rect::Rect(const IntVector& pos, const IntVector& size) {
+			vectors[0] = pos;
+			vectors[1] = pos + RealVector(size.x, 0, size.z);
+			vectors[2] = pos + RealVector(size.x, size.y, size.z);
+			vectors[3] = pos + RealVector(0, size.y, 0);
+		}
+		Rect::Rect(const RealVector& pos, const RealVector& size) {
+			vectors[0] = pos;
+			vectors[1] = pos + RealVector(size.x, 0, size.z);
+			vectors[2] = pos + RealVector(size.x, size.y, size.z);
+			vectors[3] = pos + RealVector(0, size.y, 0);
+		}
+
 	}
 
 }

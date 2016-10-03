@@ -8,20 +8,12 @@ const double vertex[] = {
 
 void display(void)
 {
-	//glClear(GL_COLOR_BUFFER_BIT);
 
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glVertexPointer(3, GL_DOUBLE, 0, vertex);
+	Draw3D::Rect(RealVector(-1, 1, -5), RealVector(2, 2, 0)).draw();
+	Draw3D::Rect(RealVector(-1, 1, -3), RealVector(0, 2, -2)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(1, 1, -3), RealVector(0, 2, -2)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(-1, 1, -3), RealVector(2, 2, 0)).draw();
 
-	glBegin(GL_TRIANGLES); {
-		int i;
-		Paint::Color(Palette::Yellow);
-		for (i = 0; i < 3; i++) glArrayElement(i);
-		//glColor3f(1, 0, 0);
-		//for (i = 3; i < 6; i++) glArrayElement(i);
-	} glEnd();
-
-	//glFlush();
 }
 
 void timer(int value) {
@@ -60,7 +52,7 @@ int main(int argc, char *argv[])
 	system.setDisplayFunc(display);
 	system.setTimerFunc(10, timer, 0);
 
-	Window::setOrtho3D(RealVector(-4, -2, 1), RealVector(4, 2, 4));
+	Window::setOrtho3D(RealVector(-4, -2, 1), RealVector(4, 2, 6));
 
 	glMatrixMode(GL_PROJECTION);
 	//glMatrixMode(GL_MODELVIEW);

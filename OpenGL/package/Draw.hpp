@@ -142,7 +142,7 @@ namespace opc {
 		/// <summary>線を描画するクラス</summary>
 		class Line {
 		public:
-			
+
 			Line();
 			Line(const int x1, const int y1, const int z1, const int x2, const int y2, const int z2);
 			Line(const double x1, const double y1, const double z1, const double x2, const double y2, const double z2);
@@ -167,8 +167,8 @@ namespace opc {
 		public:
 
 			Triangle();
-			Triangle(const int x1, const int y1, const int x2, const int y2, const int x3, const int y3);
-			Triangle(const double x1, const double y1, const double x2, const double y2, const double x3, const double y3);
+			Triangle(const int x1, const int y1, const int z1, const int x2, const int y2, const int z2, const int x3, const int y3, const int z3);
+			Triangle(const double x1, const double y1, const double z1, const double x2, const double y2, const double z2, const double x3, const double y3, const double z3);
 			Triangle(const IntVector& v1, const IntVector& v2, const IntVector& v3);
 			Triangle(const std::array<IntVector, 3>& vs);
 			Triangle(const RealVector& v1, const RealVector& v2, const RealVector& v3);
@@ -191,8 +191,8 @@ namespace opc {
 		public:
 
 			Quad();
-			Quad(const int x1, const int y1, const int x2, const int y2, const int x3, const int y3, const int x4, const int y4);
-			Quad(const double x1, const double y1, const double x2, const double y2, const double x3, const double y3, const double x4, const double y4);
+			Quad(const int x1, const int y1, const int z1, const int x2, const int y2, const int z2, const int x3, const int y3, const int z3, const int x4, const int y4, const int z4);
+			Quad(const double x1, const double y1, const double z1, const double x2, const double y2, const double z2, const double x3, const double y3, const double z3, const double x4, const double y4, const double z4);
 			Quad(const IntVector& v1, const IntVector& v2, const IntVector& v3, const IntVector& v4);
 			Quad(const std::array<IntVector, 4>& vs);
 			Quad(const RealVector& v1, const RealVector& v2, const RealVector& v3, const RealVector& v4);
@@ -215,8 +215,8 @@ namespace opc {
 		public:
 
 			Rect();
-			Rect(const int x, const int y, const int width, const int height);
-			Rect(const double x, const double y, const double width, const double height);
+			Rect(const int x, const int y, const int z, const int sx, const int sy, const int sz);
+			Rect(const double x, const double y, const double z, const double sx, const double sy, const double sz);
 			/// <summary>長方形を設定する</summary>
 			/// <param name="v1">座標</param>
 			/// <param name="v2">大きさ</param>
