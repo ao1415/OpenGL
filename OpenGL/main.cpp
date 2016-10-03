@@ -15,7 +15,7 @@ void display(void)
 
 	glBegin(GL_TRIANGLES); {
 		int i;
-		glColor3f(0, 0, 1);
+		Paint::Color(Palette::Yellow);
 		for (i = 0; i < 3; i++) glArrayElement(i);
 		//glColor3f(1, 0, 0);
 		//for (i = 3; i < 6; i++) glArrayElement(i);
