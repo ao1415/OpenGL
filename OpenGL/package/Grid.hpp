@@ -16,6 +16,8 @@ namespace opc {
 	private:
 
 		using ContainerType = std::vector<Type>;
+		using value_type = typename ContainerType::value_type;
+		using allocator_type = typename ContainerType::allocator_type;
 		using iterator = typename ContainerType::iterator;
 		using const_iterator = typename ContainerType::const_iterator;
 		using reverse_iterator = typename ContainerType::reverse_iterator;
