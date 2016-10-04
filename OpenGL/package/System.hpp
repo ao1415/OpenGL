@@ -32,6 +32,16 @@ namespace opc {
 		Stereo = GLUT_STEREO
 	};
 
+	/// <summary>クリアバッファの設定コマンド</summary>
+	enum class ClearMode : unsigned int {
+		/// <summary>色</summary>
+		Color = GL_COLOR_BUFFER_BIT,
+		/// <summary>深度</summary>
+		Depth = GL_DEPTH_BUFFER_BIT,
+		Accum = GL_ACCUM_BUFFER_BIT,
+		Stencil = GL_STENCIL_BUFFER_BIT
+	};
+
 	/// <summary>
 	///	<para>OpenGLをパッケージしたクラス</para>
 	///	<para>各種初期設定を行った後に、windowCreateを実行してください</para>
@@ -59,8 +69,25 @@ namespace opc {
 		/// <param name="...rest">DisplayMode</param>
 		template<typename... Rest>
 		void setDisplayMode(const Rest&... rest) {
-			displayMode = getDisplayMode(rest...);
+			if (SystemState::getMakeWindow())
+				throw SettingErrer("ディスプレイモードを変更できませんでした");
+			displayMode = orFlag(rest...);
 		}
+
+		/// <summary>バッファクリアの設定</summary>
+		/// <param name="mode">バッファクリアのフラグ</param>
+		void setClearMode(const unsigned int mode);
+		/// <summary>バッファクリアの設定</summary>
+		/// <param name="...rest">ClearMode</param>
+		template<typename... Rest>
+		void setClearMode(const Rest&... rest) {
+			if (SystemState::getMakeWindow())
+				throw SettingErrer("クリアモードを変更できませんでした");
+			clearMode = orFlag(rest...);
+		}
+
+		void enable(const unsigned int mode);
+		void disable(const unsigned int mode);
 
 		/// <summary>描画関数を設定する</summary>
 		/// <param name="func">描画する関数ポインタ</param>
@@ -78,6 +105,10 @@ namespace opc {
 	private:
 
 		unsigned int displayMode;
+		unsigned int clearMode;
+
+		std::vector<unsigned int> enableConfig;
+		std::vector<unsigned int> disableConfig;
 
 		std::function<void()> displayFunction;
 		std::function<void(int)> timerFunction;
@@ -85,7 +116,7 @@ namespace opc {
 
 		/// <summary>初期設定</summary>
 		void init() {
-			
+
 			Window::setSize(IntSize(640, 480));
 			Window::setTitle("OpenGL");
 			Window::setClearColor(Palette::Black);
@@ -96,11 +127,11 @@ namespace opc {
 
 		}
 
-		template<typename First,typename... Rest>
-		const unsigned int getDisplayMode(const First& first, const Rest&... rest) {
-			return (unsigned int)first | getDisplayMode(rest...);
+		template<typename First, typename... Rest>
+		const unsigned int orFlag(const First& first, const Rest&... rest) {
+			return (unsigned int)first | orFlag(rest...);
 		}
-		inline const unsigned int getDisplayMode() {
+		inline const unsigned int orFlag() {
 			return 0;
 		}
 

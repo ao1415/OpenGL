@@ -31,8 +31,10 @@ namespace opc {
 			if (dp != nullptr)
 			{
 				Display display(displayFunction);
+				//クリアするバッファの設定
+				Display::clearMode = clearMode;
 
-				glutDisplayFunc(Display::display);;
+				glutDisplayFunc(Display::display);
 			}
 		}
 
@@ -58,6 +60,9 @@ namespace opc {
 				GLdouble(Window::ortho3DPoint[1].y), GLdouble(Window::ortho3DPoint[0].y),
 				GLdouble(Window::ortho3DPoint[0].z), GLdouble(Window::ortho3DPoint[1].z));
 		}
+		
+		for (const auto& mode : enableConfig) glEnable(mode);
+		for (const auto& mode : disableConfig) glDisable(mode);
 
 		//メインループ
 		glutMainLoop();
@@ -65,14 +70,37 @@ namespace opc {
 	}
 
 	void System::setDisplayMode(const unsigned int mode) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("ディスプレイモードを変更できませんでした");
 		displayMode = mode;
 	}
 
+	void System::setClearMode(const unsigned int mode) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("クリアモードを変更できませんでした");
+		clearMode = mode;
+	}
+
+	void System::enable(const unsigned int mode) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("設定を有効にできませんでした");
+		enableConfig.push_back(mode);
+	}
+	void System::disable(const unsigned int mode) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("設定を無効にできませんでした");
+		disableConfig.push_back(mode);
+	}
+
 	void System::setDisplayFunc(std::function<void()> func) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("表示関数を変更できませんでした");
 		displayFunction = func;
 	}
 
 	void System::setTimerFunc(unsigned int time, std::function<void(int)> func, int value) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("タイマー関数を変更できませんでした");
 		timerFunction = func; AcyncTimer::time = time; AcyncTimer::value = value;
 	}
 

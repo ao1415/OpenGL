@@ -22,6 +22,7 @@ namespace opc {
 		static void display();
 
 		static std::function<void()> func;
+		static unsigned int clearMode;
 
 	};
 

@@ -1,87 +1,52 @@
 #include "OpenGL.hpp"
 
-const double vertex[] = {
-	-1.4 , 1.9 , -3 , 0 , 0.1 , -3 , 1.5 , 1.9 , -3 ,
-	0.1 , 1.9 , -2 , 1.5 , 0.1 , -2 , 3 , 1.9 , -2
-};
-//-1.4, 1.9, -3, 0, 0.1, -3, 1.5, 1.9, -3,
+double theta = 0;
 
 void display(void)
 {
+	
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
 
-	Draw3D::Rect(RealVector(-2, -6, -7), RealVector(4, 4, 0)).draw(Palette::White);
-	Draw3D::Rect(RealVector(-2, -6, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
-	Draw3D::Rect(RealVector(2, -6, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
-	Draw3D::Rect(RealVector(-2, -6, -3), RealVector(4, 4, 0)).draw(Palette::White);
+	gluPerspective(30.0, 1.0, 1.0, 5000.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 
-	Draw3D::Rect(RealVector(-2, 2, -7), RealVector(4, 4, 0)).draw(Palette::White);
-	Draw3D::Rect(RealVector(-2, 2, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
-	Draw3D::Rect(RealVector(2, 2, -3), RealVector(0, 4, -4)).draw(Palette::Gray);
-	Draw3D::Rect(RealVector(-2, 2, -3), RealVector(4, 4, 0)).draw(Palette::White);
+	gluLookAt(0.0, 00.0, 80.0,
+		0.0, 0.0, 0.0,
+		0.0, 1.0, 0.0);
 
+	glRotated(theta, 0, 1, 0);
+	theta += 1;
+	const int size = 20;
+	
+	Draw3D::Rect(RealVector(-size / 2, -size / 2, size / 2), RealVector(size, size, 0)).draw(Palette::White);
+	Draw3D::Rect(RealVector(-size / 2, -size / 2, -size / 2), RealVector(size, size, 0)).draw(Palette::White);
+	Draw3D::Rect(RealVector(-size / 2, -size / 2, size / 2), RealVector(0, size, -size)).draw(Palette::Gray);
+	Draw3D::Rect(RealVector(size / 2, -size / 2, size / 2), RealVector(0, size, -size)).draw(Palette::Gray);
+	
 }
 
 void timer(int value) {
 
-	glRotatef(1, 0, 1, 0);
-
 	glutPostRedisplay();
-}
-
-void disp(void) {
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glVertexPointer(3, GL_DOUBLE, 0, vertex);
-
-	glBegin(GL_TRIANGLES); {
-		int i;
-		glColor3f(0, 0, 1);
-		for (i = 0; i < 3; i++) glArrayElement(i);
-		glColor3f(1, 0, 0);
-		for (i = 3; i < 6; i++) glArrayElement(i);
-	} glEnd();
-
-	glFlush();
 }
 
 int main(int argc, char *argv[])
 {
-
-	//*
 	System system;
 
-	//system.setDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA | GLUT_DEPTH);
+	system.setDisplayMode(DisplayMode::RGBA, DisplayMode::Double);
+	system.setClearMode(ClearMode::Color, ClearMode::Depth);
 
-	system.setDisplayMode(DisplayMode::RGBA, DisplayMode::Double, DisplayMode::Alpha, DisplayMode::Depth);
+	system.enable(GL_DEPTH_TEST);
 
 	system.setDisplayFunc(display);
 	system.setTimerFunc(10, timer, 0);
 
 	Window::setSize(640, 640);
-	Window::setOrtho3D(RealVector(-4, -4, 1), RealVector(4, 4, 9));
-
-	glMatrixMode(GL_PROJECTION);
-	//glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
 
 	system.create();
-
-	/*/
-	glutInit(&argc, argv);
-	glutInitWindowPosition(100, 50);
-	glutInitWindowSize(400, 300);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
-
-	glutCreateWindow("Kitty on your lap");
-	glutDisplayFunc(disp);
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glFrustum(0, 4, 2, 0, 2, 10);
-
-	glutMainLoop();
-	//*/
 
 	return 0;
 }
