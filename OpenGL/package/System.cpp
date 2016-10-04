@@ -54,13 +54,13 @@ namespace opc {
 		{
 			gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));
 		}
-		else if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_3D))
+		else if (false && SystemState::getStandardPoint(SystemState::StandardPoint::Mode_3D))
 		{
 			glFrustum(GLdouble(Window::ortho3DPoint[0].x), GLdouble(Window::ortho3DPoint[1].x),
 				GLdouble(Window::ortho3DPoint[1].y), GLdouble(Window::ortho3DPoint[0].y),
 				GLdouble(Window::ortho3DPoint[0].z), GLdouble(Window::ortho3DPoint[1].z));
 		}
-		
+
 		for (const auto& mode : enableConfig) glEnable(mode);
 		for (const auto& mode : disableConfig) glDisable(mode);
 

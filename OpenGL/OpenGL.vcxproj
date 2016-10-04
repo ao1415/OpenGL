@@ -161,6 +161,7 @@
     <ClCompile Include="package\System.cpp" />
     <ClCompile Include="package\SystemState.cpp" />
     <ClCompile Include="package\Vector.cpp" />
+    <ClCompile Include="package\View.cpp" />
     <ClCompile Include="package\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +180,7 @@
     <ClInclude Include="package\System.hpp" />
     <ClInclude Include="package\SystemState.hpp" />
     <ClInclude Include="package\Vector.hpp" />
+    <ClInclude Include="package\View.hpp" />
     <ClInclude Include="package\Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

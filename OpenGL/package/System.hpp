@@ -86,7 +86,17 @@ namespace opc {
 			clearMode = orFlag(rest...);
 		}
 
+		/// <summary>
+		/// <para>İ’è‚ğ—LŒø‚É‚µ‚Ü‚·</para>
+		///	<para>Ú×:https://www.opengl.org/sdk/docs/man2/xhtml/glEnable.xml</para>
+		/// </summary>
+		/// <param name="mode">cap</param>
 		void enable(const unsigned int mode);
+		/// <summary>
+		/// <para>İ’è‚ğ–³Œø‚É‚µ‚Ü‚·</para>
+		///	<para>Ú×:https://www.opengl.org/sdk/docs/man2/xhtml/glEnable.xml</para>
+		/// </summary>
+		/// <param name="mode">cap</param>
 		void disable(const unsigned int mode);
 
 		/// <summary>•`‰æŠÖ”‚ğİ’è‚·‚é</summary>
