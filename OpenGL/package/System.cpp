@@ -64,6 +64,10 @@ namespace opc {
 		for (const auto& mode : enableConfig) glEnable(mode);
 		for (const auto& mode : disableConfig) glDisable(mode);
 
+	}
+
+	void System::update() {
+
 		//ƒƒCƒ“ƒ‹[ƒv
 		glutMainLoop();
 

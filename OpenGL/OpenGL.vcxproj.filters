@@ -95,6 +95,9 @@
     <ClCompile Include="package\View.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="package\Bitmap.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="package\AcyncTimer.hpp">
@@ -146,5 +149,6 @@
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="package\View.hpp" />
+    <ClInclude Include="package\Bitmap.hpp" />
   </ItemGroup>
 </Project>

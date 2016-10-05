@@ -3,6 +3,7 @@
 #include "Window.hpp"
 #include "Grid.hpp"
 #include "Matrix.hpp"
+#include "Bitmap.hpp"
 
 namespace opc {
 
@@ -57,10 +58,13 @@ namespace opc {
 		System(int argc, char *argv[]);
 
 		/// <summary>
-		///	<para>ウインドウの作成・設定されたプログラムの実行を行う</para>
+		///	<para>ウインドウの作成</para>
 		///	<para>実行後は各種設定の変更は行えません</para>
 		///	</summary>
 		void create();
+
+		/// <summary>設定されたプログラムを実行します</summary>
+		void update();
 
 		/// <summary>ディスプレイモードの設定</summary>
 		/// <param name="mode">ディスプレイモードのフラグ</param>

@@ -2,12 +2,14 @@
 
 double theta = 0;
 
+Bitmap bmp;
+
 void display(void)
 {
-
+	/*
 	View::Perspective(30, 1, 1, 500);
 
-	View::LookAt(RealVector(0, 0, 80), RealVector(0, 0, 0), RealVector(0, 1, 0));
+	View::LookAt(RealVector(0, 80, 80), RealVector(0, 0, 0), RealVector(0, 1, 0));
 
 	glRotated(theta, 0, 1, 0);
 	theta += 1;
@@ -19,6 +21,25 @@ void display(void)
 	Draw3D::Rect(RealVector(size / 2, -size / 2, size / 2), RealVector(0, size, -size)).draw(Palette::Gray);
 
 	Draw3D::Pixel(RealVector(0, 10, size)).draw(8, Palette::Red);
+	*/
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glOrtho(0.0, 640, 640, 0.0, -1.0, 1.0);
+
+	glEnable(GL_TEXTURE_2D);//テクスチャ有効
+	glBindTexture(GL_TEXTURE_2D, bmp.Texture);
+	glEnable(GL_ALPHA_TEST);//アルファテスト開始
+
+	glBegin(GL_POLYGON);
+	glTexCoord2f(0.0f, 0.0f); glVertex2d(0, 480);//左下
+	glTexCoord2f(0.0f, 1.0f); glVertex2d(0, 0);//左上
+	glTexCoord2f(1.0f, 1.0f); glVertex2d(640, 0);//右上
+	glTexCoord2f(1.0f, 0.0f); glVertex2d(640, 480);//右下
+	glEnd();
+
+	glDisable(GL_ALPHA_TEST);//アルファテスト終了
+	glDisable(GL_TEXTURE_2D);//テクスチャ無効
 
 }
 
@@ -29,6 +50,7 @@ void timer(int value) {
 
 int main(int argc, char *argv[])
 {
+	//*
 	System system;
 
 	system.setDisplayMode(DisplayMode::RGBA, DisplayMode::Double);
@@ -42,6 +64,13 @@ int main(int argc, char *argv[])
 	Window::setSize(640, 640);
 
 	system.create();
+
+	bmp = Bitmap("sample.bmp");
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+
+	system.update();
 
 	return 0;
 }

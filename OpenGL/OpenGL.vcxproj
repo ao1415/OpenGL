@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="package\AcyncTimer.cpp" />
+    <ClCompile Include="package\Bitmap.cpp" />
     <ClCompile Include="package\Color.cpp" />
     <ClCompile Include="package\Display.cpp" />
     <ClCompile Include="package\Draw.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="package\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="package\Bitmap.hpp" />
     <ClInclude Include="package\Matrix.hpp" />
     <ClInclude Include="package\Grid.hpp" />
     <ClInclude Include="package\AcyncTimer.hpp" />
