@@ -149,6 +149,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="package\Mouse.cpp" />
     <ClCompile Include="package\AcyncTimer.cpp" />
     <ClCompile Include="package\Bitmap.cpp" />
     <ClCompile Include="package\Color.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="package\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="package\Mouse.hpp" />
     <ClInclude Include="package\Bitmap.hpp" />
     <ClInclude Include="package\Matrix.hpp" />
     <ClInclude Include="package\Grid.hpp" />

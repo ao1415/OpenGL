@@ -50,6 +50,9 @@ namespace opc {
 			}
 		}
 
+		glutMouseFunc(Mouse::mouse);
+		glutMotionFunc(Mouse::motion);
+
 		if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_2D))
 		{
 			gluOrtho2D(GLdouble(Window::ortho2DPoint[0].x), GLdouble(Window::ortho2DPoint[1].x), GLdouble(Window::ortho2DPoint[1].y), GLdouble(Window::ortho2DPoint[0].y));

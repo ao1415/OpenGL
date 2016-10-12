@@ -48,6 +48,15 @@
     <Filter Include="ソース ファイル\OpenGL\Grid">
       <UniqueIdentifier>{22ed8d84-53a7-4c06-9321-4c1511a9e0a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\OpenGL\View">
+      <UniqueIdentifier>{2d16a33c-1b4a-4f0b-9763-208aff9ffd1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Draw\Bitmap">
+      <UniqueIdentifier>{04713a9d-35ba-45ad-852e-f171d1ce5393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\OpenGL\Mouse">
+      <UniqueIdentifier>{a1add21f-e4dd-4c32-9d08-4a383ddf2129}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,10 +102,13 @@
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="package\View.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\OpenGL\View</Filter>
     </ClCompile>
     <ClCompile Include="package\Bitmap.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\OpenGL\Draw\Bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="package\Mouse.cpp">
+      <Filter>ソース ファイル\OpenGL\Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +160,14 @@
     <ClInclude Include="package\Property.hpp">
       <Filter>ソース ファイル\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="package\View.hpp" />
-    <ClInclude Include="package\Bitmap.hpp" />
+    <ClInclude Include="package\View.hpp">
+      <Filter>ソース ファイル\OpenGL\View</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Bitmap.hpp">
+      <Filter>ソース ファイル\OpenGL\Draw\Bitmap</Filter>
+    </ClInclude>
+    <ClInclude Include="package\Mouse.hpp">
+      <Filter>ソース ファイル\OpenGL\Mouse</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
