@@ -1,8 +1,12 @@
 #include "OpenGL.hpp"
 
-double theta = 0;
+//*
 
 Bitmap bmp;
+
+IntPoint mousePos;
+bool mouseClick;
+RealPoint angle;
 
 void display(void)
 {
@@ -10,16 +14,8 @@ void display(void)
 
 	View::LookAt(RealVector(0, 0, 80), RealVector(0, 0, 0), RealVector(0, -1, 0));
 
-	//glRotated(theta, 0, 1, 0);
-	theta += 1;
-	const int size = 20;
-
-	//Draw3D::Rect(RealVector(-size / 2, -size / 2, size / 2), RealVector(size, size, 0)).draw(Palette::White);
-	//Draw3D::Rect(RealVector(-size / 2, -size / 2, -size / 2), RealVector(size, size, 0)).draw(Palette::White);
-	//Draw3D::Rect(RealVector(-size / 2, -size / 2, size / 2), RealVector(0, size, -size)).draw(Palette::Gray);
-	//Draw3D::Rect(RealVector(size / 2, -size / 2, size / 2), RealVector(0, size, -size)).draw(Palette::Gray);
-
-	//Draw3D::Pixel(RealVector(0, 10, size)).draw(8, Palette::Red);
+	glRotated(angle.x, -1, 0, 0);
+	glRotated(angle.y, 0, -1, 0);
 
 	glEnable(GL_TEXTURE_2D);//テクスチャ有効
 	glBindTexture(GL_TEXTURE_2D, bmp.Texture);
@@ -40,6 +36,39 @@ void display(void)
 void timer(int value) {
 
 	glutPostRedisplay();
+}
+
+void mouseFunc(int button, int state, int x, int y)
+{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		mousePos.x = x;
+		mousePos.y = y;
+		mouseClick = true;
+	}
+	else
+	{
+		mouseClick = false;
+	}
+
+}
+
+void mouseMotion(int x, int y)
+{
+	if (mouseClick== false) return;
+
+	int xdir, ydir;
+
+	xdir = x - mousePos.x;
+	ydir = y - mousePos.y;
+
+	angle.x += (double)ydir * 0.5;
+	angle.y += (double)xdir * 0.5;
+
+	mousePos.x = x;
+	mousePos.y = y;
+
+	//glutPostRedisplay();
 }
 
 int main(int argc, char *argv[])
@@ -64,7 +93,13 @@ int main(int argc, char *argv[])
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_BLEND);
 
+	glutMouseFunc(mouseFunc);
+	glutMotionFunc(mouseMotion);
+
 	system.update();
 
 	return 0;
 }
+/*/
+
+//*/

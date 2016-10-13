@@ -15,8 +15,18 @@ namespace opc {
 		Property_Get(bool, mouseL_Click) const {
 			return (pressed && pressedButton == GLUT_LEFT_BUTTON);
 		}
-		bool mouseR_Click() const {
+		Property_Get(bool, mouseR_Click) const {
 			return (pressed && pressedButton == GLUT_RIGHT_BUTTON);
+		}
+
+		Property_Get(IntPoint, ClickPos) const {
+			return clickPos;
+		}
+		Property_Get(IntPoint, MotionPos) const {
+			return motionPos;
+		}
+		Property_Get(IntPoint, PreviousPos) const {
+			return previousPos;
 		}
 
 		friend System;
@@ -28,39 +38,19 @@ namespace opc {
 		/// <summary>押されているキー</summary>
 		static int pressedButton;
 
+		/// <summary>カーソルが動いたか</summary>
+		static bool moved;
+
 		/// <summary>クリックした座標</summary>
 		static IntPoint clickPos;
 		/// <summary>ドラッグした座標</summary>
 		static IntPoint motionPos;
+		/// <summary>直前の座標</summary>
+		static IntPoint previousPos;
 
-		static void mouse(int btn, int state, int x, int y) {
+		static void mouse(int btn, int state, int x, int y);
+		static void motion(int x, int y);
 
-			if (state == GLUT_DOWN)
-			{
-				pressedButton = btn;
-				clickPos = IntPoint(x, y);
-				pressed = true;
-			}
-			else
-			{
-				pressed = false;
-			}
-		}
-
-		static void motion(int x, int y) {
-
-			if (pressed)
-			{
-				switch (pressedButton)
-				{
-				case GLUT_LEFT_BUTTON:
-				case GLUT_RIGHT_BUTTON:
-					motionPos = IntPoint(x, y);
-					break;
-				}
-			}
-
-		}
 	};
 
 }

@@ -50,8 +50,8 @@ namespace opc {
 			}
 		}
 
-		glutMouseFunc(Mouse::mouse);
-		glutMotionFunc(Mouse::motion);
+		//glutMouseFunc(Mouse::mouse);
+		//glutMotionFunc(Mouse::motion);
 
 		if (SystemState::getStandardPoint(SystemState::StandardPoint::Mode_2D))
 		{
