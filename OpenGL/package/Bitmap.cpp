@@ -148,6 +148,10 @@ namespace opc {
 						colorMap[y][x].g = buf[index]; index++;
 						colorMap[y][x].r = buf[index]; index++;
 						colorMap[y][x].a = buf[index]; index++;
+						data.push_back(colorMap[y][x].r);
+						data.push_back(colorMap[y][x].g);
+						data.push_back(colorMap[y][x].b);
+						data.push_back(colorMap[y][x].a);
 					}
 				}
 			}
@@ -174,6 +178,7 @@ namespace opc {
 		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data.data());
 		glBindTexture(GL_TEXTURE_2D, 0);
+		glDisable(GL_TEXTURE_2D);
 	}
 
 }

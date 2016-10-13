@@ -106,7 +106,7 @@ namespace opc {
 			width = height = 0;
 		}
 
-		IntSize size() const noexcept { return IntSize(static_cast<int>width, static_cast<int>height); }
+		IntSize size() const noexcept { return IntSize(static_cast<int>(width), static_cast<int>(height)); }
 
 		size_t num_elements() const noexcept { return data.size(); }
 
