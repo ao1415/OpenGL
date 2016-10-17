@@ -24,7 +24,7 @@ void display(void)
 {
 	View::Perspective(30, 1, 1, 15000);
 
-	View::LookAt(RealVector(0, 0, 2000), RealVector(0, 0, 0), RealVector(0, -1, 0));
+	View::LookAt(RealVector(0, 0, 1000), RealVector(0, 0, 0), RealVector(0, -1, 0));
 
 	glTranslated(camera.x, camera.y, 0);
 	glRotated(angle.x, -1, 0, 0);
@@ -34,8 +34,9 @@ void display(void)
 	{
 		for (int x = 0; x < textureSize.width; x++)
 		{
-			Draw3D::Pixel(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, 255.0 - bitmap[y][x].first)
-				.draw(1, bitmap[y][x].second);
+			//Draw3D::Pixel(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, 255.0 - bitmap[y][x].first)
+			Draw3D::Pixel(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, (bitmap[y][x].first)*8.0)
+				.draw(2, bitmap[y][x].second);
 		}
 	}
 
@@ -109,7 +110,7 @@ int main(int argc, char *argv[])
 
 	map<int, Grid<Color>> images;
 
-	ifstream ifs("sample.txt");
+	ifstream ifs("test.txt");
 	if (!ifs)
 	{
 		cerr << "ファイルが開けません" << endl;
