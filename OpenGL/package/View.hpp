@@ -21,6 +21,14 @@ namespace opc {
 		///	<param name="up">ã‚Ìİ’è</param>
 		void LookAt(const RealVector& eye, const RealVector& center, const RealVector& up);
 
+		///	<summary>•½sˆÚ“®</summary>
+		///	<param name="vector">ˆÚ“®•ûŒü</param>
+		void Translate(const RealVector& vector);
+
+		///	<summary>‰ñ“]</summary>
+		///	<param name="vector">‰ñ“]•ûŒü</param>
+		void Rotate(const double angle, const RealVector& vector);
+
 	}
 
 }

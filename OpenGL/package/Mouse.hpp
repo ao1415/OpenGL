@@ -9,24 +9,6 @@
 
 namespace opc {
 
-	/// <summary>マウスのボタン</summary>
-	enum class MouseButton : unsigned int {
-		/// <summary>左クリック</summary>
-		Left = GLUT_LEFT_BUTTON,
-		/// <summary>中央クリック</summary>
-		Middle = GLUT_MIDDLE_BUTTON,
-		/// <summary>右クリック</summary>
-		Right = GLUT_RIGHT_BUTTON
-	};
-
-	/// <summary>ボタンの状態</summary>
-	enum class ButtonState : unsigned int {
-		/// <summary>押されている</summary>
-		Down = GLUT_DOWN,
-		/// <summary>離されている</summary>
-		Up = GLUT_UP
-	};
-
 	class System;
 
 	class Mouse {

@@ -23,9 +23,9 @@ void display()
 
 	View::LookAt(RealVector(0, 0, 1000), RealVector(0, 0, 0), RealVector(0, -1, 0));
 
-	glTranslated(camera.x, camera.y, 0);
-	glRotated(angle.x, -1, 0, 0);
-	glRotated(angle.y, 0, -1, 0);
+	View::Translate(RealVector(camera.x, camera.y, 0));
+	View::Rotate(angle.x, RealVector(-1, 0, 0));
+	View::Rotate(angle.y, RealVector(0, -1, 0));
 
 	for (int y = 0; y < textureSize.height; y++)
 	{
@@ -71,6 +71,17 @@ void mouseMotion()
 	}
 }
 
+class DrawImage {
+public:
+
+
+
+private:
+
+
+
+};
+
 int main(int argc, char *argv[])
 {
 	//*
@@ -94,7 +105,7 @@ int main(int argc, char *argv[])
 
 	map<int, Grid<Color>> images;
 
-	ifstream ifs("depthImage.txt");
+	ifstream ifs("256.txt");
 	if (!ifs)
 	{
 		cerr << "ファイルが開けません" << endl;
@@ -122,17 +133,7 @@ int main(int argc, char *argv[])
 
 	system.create();
 
-	//bmp = Bitmap("sample.bmp");
-
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnable(GL_BLEND);
-
-	//makeTexture("sample.txt");
-
 	system.update();
 
 	return 0;
 }
-/*/
-
-//*/
