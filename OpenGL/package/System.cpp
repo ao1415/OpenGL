@@ -50,6 +50,12 @@ namespace opc {
 			}
 		}
 
+		Mouse::setMouse(mouseFunction);
+		glutMouseFunc(Mouse::mouse);
+
+		Mouse::setMotion(motionFunction);
+		glutMotionFunc(Mouse::motion);
+
 		//glutMouseFunc(Mouse::mouse);
 		//glutMotionFunc(Mouse::motion);
 
@@ -109,6 +115,18 @@ namespace opc {
 		if (SystemState::getMakeWindow())
 			throw SettingErrer("タイマー関数を変更できませんでした");
 		timerFunction = func; AcyncTimer::time = time; AcyncTimer::value = value;
+	}
+
+	void System::setMouseFunc(std::function<void()> func) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("マウスクリック関数を変更できませんでした");
+		mouseFunction = func;
+	}
+
+	void System::setMouseMotionFunc(std::function<void()> func) {
+		if (SystemState::getMakeWindow())
+			throw SettingErrer("マウス動作関数を変更できませんでした");
+		motionFunction = func;
 	}
 
 }

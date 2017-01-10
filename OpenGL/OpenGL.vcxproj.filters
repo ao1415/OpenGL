@@ -54,7 +54,7 @@
     <Filter Include="ソース ファイル\OpenGL\Draw\Bitmap">
       <UniqueIdentifier>{04713a9d-35ba-45ad-852e-f171d1ce5393}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\OpenGL\Mouse">
+    <Filter Include="ソース ファイル\OpenGL\System\Mouse">
       <UniqueIdentifier>{a1add21f-e4dd-4c32-9d08-4a383ddf2129}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -108,7 +108,7 @@
       <Filter>ソース ファイル\OpenGL\Draw\Bitmap</Filter>
     </ClCompile>
     <ClCompile Include="package\Mouse.cpp">
-      <Filter>ソース ファイル\OpenGL\Mouse</Filter>
+      <Filter>ソース ファイル\OpenGL\System\Mouse</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,7 +167,7 @@
       <Filter>ソース ファイル\OpenGL\Draw\Bitmap</Filter>
     </ClInclude>
     <ClInclude Include="package\Mouse.hpp">
-      <Filter>ソース ファイル\OpenGL\Mouse</Filter>
+      <Filter>ソース ファイル\OpenGL\System\Mouse</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -117,6 +117,14 @@ namespace opc {
 		/// <param name="value">実行する関数の引数</param>
 		void setTimerFunc(unsigned int time, std::function<void(int)> func, int value);
 
+		/// <summary>マウスクリックの関数を登録する</summary>
+		/// <param name="func">関数ポインタ</param>
+		void setMouseFunc(std::function<void()> func);
+
+		/// <summary>マウス動作の関数を登録する</summary>
+		/// <param name="func">関数ポインタ</param>
+		void setMouseMotionFunc(std::function<void()> func);
+
 	private:
 
 		unsigned int displayMode;
@@ -125,8 +133,11 @@ namespace opc {
 		std::vector<unsigned int> enableConfig;
 		std::vector<unsigned int> disableConfig;
 
-		std::function<void()> displayFunction;
-		std::function<void(int)> timerFunction;
+		std::function<void()> displayFunction = nullptr;
+		std::function<void(int)> timerFunction = nullptr;
+
+		std::function<void()> mouseFunction = nullptr;
+		std::function<void()> motionFunction = nullptr;
 
 
 		/// <summary>初期設定</summary>

@@ -11,16 +11,13 @@ using namespace std;
 
 Bitmap bmp;
 
-int mButton;
-IntPoint mousePos;
-bool mouseClick;
 RealPoint angle;
 RealPoint camera;
 
 IntSize textureSize;
 Grid<pair<int, Color>> bitmap;
 
-void display(void)
+void display()
 {
 	View::Perspective(30, 1, 1, 15000);
 
@@ -46,48 +43,32 @@ void timer(int value) {
 
 	glutPostRedisplay();
 }
-
-void mouseFunc(int button, int state, int x, int y)
+void mouseFunc()
 {
-	if (state == GLUT_DOWN)
-	{
-		mButton = button;
-		mousePos.x = x;
-		mousePos.y = y;
-		mouseClick = true;
-	}
-	else
-	{
-		mouseClick = false;
-	}
 
 }
 
-void mouseMotion(int x, int y)
+void mouseMotion()
 {
-	if (mouseClick == false) return;
+	Mouse mouse;
 
+	const auto pos = mouse.MotionPos;
+	const auto prePos = mouse.PreviousPos;
 	int xdir, ydir;
 
-	xdir = x - mousePos.x;
-	ydir = y - mousePos.y;
+	xdir = pos.x - prePos.x;
+	ydir = pos.y - prePos.y;
 
-	switch (mButton)
+	if (mouse.mouseL_Click)
 	{
-	case GLUT_LEFT_BUTTON:
 		angle.x += (double)ydir * 0.5;
 		angle.y += (double)xdir * 0.5;
-		break;
-	case GLUT_RIGHT_BUTTON:
+	}
+	if (mouse.mouseR_Click)
+	{
 		camera.x -= xdir / 40.0;
 		camera.y += ydir / 40.0;
-		break;
 	}
-
-	mousePos.x = x;
-	mousePos.y = y;
-
-	//glutPostRedisplay();
 }
 
 int main(int argc, char *argv[])
@@ -103,6 +84,9 @@ int main(int argc, char *argv[])
 	system.setDisplayFunc(display);
 	system.setTimerFunc(10, timer, 0);
 
+	//system.setMouseFunc(mouseFunc);
+	system.setMouseMotionFunc(mouseMotion);
+
 	Window::setSize(960, 960);
 
 
@@ -110,7 +94,7 @@ int main(int argc, char *argv[])
 
 	map<int, Grid<Color>> images;
 
-	ifstream ifs("test.txt");
+	ifstream ifs("depthImage.txt");
 	if (!ifs)
 	{
 		cerr << "ファイルが開けません" << endl;
@@ -144,9 +128,6 @@ int main(int argc, char *argv[])
 	glEnable(GL_BLEND);
 
 	//makeTexture("sample.txt");
-
-	glutMouseFunc(mouseFunc);
-	glutMotionFunc(mouseMotion);
 
 	system.update();
 

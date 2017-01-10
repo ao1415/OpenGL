@@ -11,6 +11,22 @@ namespace opc {
 	IntPoint Mouse::motionPos;
 	IntPoint Mouse::previousPos;
 
+	std::function<void()> Mouse::mouseFunc;
+	std::function<void()> Mouse::motionFunc;
+
+	Mouse::Mouse() {}
+	Mouse::Mouse(std::function<void()> _mouse, std::function<void()> _motion) {
+		mouseFunc = _mouse;
+		motionFunc = _motion;
+	}
+
+	void Mouse::setMouse(std::function<void()> _mouse) {
+		mouseFunc = _mouse;
+	}
+	void Mouse::setMotion(std::function<void()> _motion) {
+		motionFunc = _motion;
+	}
+
 	void Mouse::mouse(int btn, int state, int x, int y) {
 		if (state == GLUT_DOWN)
 		{
@@ -22,12 +38,19 @@ namespace opc {
 		}
 		else
 			pressed = false;
+
+		if (mouseFunc)
+			mouseFunc();
+
 	}
 
 	void Mouse::motion(int x, int y) {
 		previousPos = motionPos;
 		motionPos = IntPoint(x, y);
-		std::cout << motionPos - previousPos << std::endl;
+		//std::cout << motionPos - previousPos << std::endl;
+
+		if (motionFunc)
+			motionFunc();
 	}
 
 }
