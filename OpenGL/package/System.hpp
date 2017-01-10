@@ -119,7 +119,7 @@ namespace opc {
 
 		/// <summary>マウスクリックの関数を登録する</summary>
 		/// <param name="func">関数ポインタ</param>
-		void setMouseFunc(std::function<void()> func);
+		void setMouseFunc(std::function<void(int,int,int,int)> func);
 
 		/// <summary>マウス動作の関数を登録する</summary>
 		/// <param name="func">関数ポインタ</param>
@@ -136,7 +136,7 @@ namespace opc {
 		std::function<void()> displayFunction = nullptr;
 		std::function<void(int)> timerFunction = nullptr;
 
-		std::function<void()> mouseFunction = nullptr;
+		std::function<void(int,int,int,int)> mouseFunction = nullptr;
 		std::function<void()> motionFunction = nullptr;
 
 

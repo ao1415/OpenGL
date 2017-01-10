@@ -13,7 +13,8 @@ namespace opc {
 	void Display::display() {
 		glClear(clearMode);
 
-		func();
+		if (func)
+			func();
 
 		glutSwapBuffers();
 	}

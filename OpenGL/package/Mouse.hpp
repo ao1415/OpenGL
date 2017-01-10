@@ -49,14 +49,14 @@ namespace opc {
 		/// <summary>íºëOÇÃç¿ïW</summary>
 		static IntPoint previousPos;
 
-		static std::function<void()> mouseFunc;
+		static std::function<void(int, int, int, int)> mouseFunc;
 		static std::function<void()> motionFunc;
 
 		friend System;
 
-		Mouse(std::function<void()> _mouse, std::function<void()> _motion);
+		Mouse(std::function<void(int, int, int, int)> _mouse, std::function<void()> _motion);
 
-		static void setMouse(std::function<void()> _mouse);
+		static void setMouse(std::function<void(int, int, int, int)> _mouse);
 		static void setMotion(std::function<void()> _motion);
 
 		static void mouse(int btn, int state, int x, int y);

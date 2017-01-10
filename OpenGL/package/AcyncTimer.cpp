@@ -13,7 +13,8 @@ namespace opc {
 
 	void AcyncTimer::timer(int v) {
 
-		func(value);
+		if (func)
+			func(value);
 
 		glutTimerFunc(time, AcyncTimer::timer, value);
 	}

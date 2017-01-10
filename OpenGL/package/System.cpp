@@ -24,31 +24,14 @@ namespace opc {
 
 		glClearColor(GLclampf(Window::clearColor.r / 255.0), GLclampf(Window::clearColor.g / 255.0), GLclampf(Window::clearColor.b / 255.0), GLclampf(Window::clearColor.a / 255.0));
 
-		if (displayFunction)
-		{
-			using DisplayFuncPointer = void(*)();
-			DisplayFuncPointer* dp = displayFunction.target<DisplayFuncPointer>();
-			if (dp != nullptr)
-			{
-				Display display(displayFunction);
-				//クリアするバッファの設定
-				Display::clearMode = clearMode;
+		Display display(displayFunction);
+		Display::clearMode = clearMode;
+		glutDisplayFunc(Display::display);
 
-				glutDisplayFunc(Display::display);
-			}
-		}
 
-		if (timerFunction)
-		{
-			using TimerFuncPointer = void(*)(int);
-			TimerFuncPointer* tp = timerFunction.target<TimerFuncPointer>();
-			if (tp != nullptr)
-			{
-				AcyncTimer acyncTimer(timerFunction);
+		AcyncTimer acyncTimer(timerFunction);
+		glutTimerFunc(AcyncTimer::time, AcyncTimer::timer, AcyncTimer::value);
 
-				glutTimerFunc(AcyncTimer::time, AcyncTimer::timer, AcyncTimer::value);
-			}
-		}
 
 		Mouse::setMouse(mouseFunction);
 		glutMouseFunc(Mouse::mouse);
@@ -117,7 +100,7 @@ namespace opc {
 		timerFunction = func; AcyncTimer::time = time; AcyncTimer::value = value;
 	}
 
-	void System::setMouseFunc(std::function<void()> func) {
+	void System::setMouseFunc(std::function<void(int, int, int, int)> func) {
 		if (SystemState::getMakeWindow())
 			throw SettingErrer("マウスクリック関数を変更できませんでした");
 		mouseFunction = func;
