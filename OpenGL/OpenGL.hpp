@@ -5,6 +5,6 @@
 #include "package/Draw.hpp"
 #include "package/View.hpp"
 
-#ifndef NO_OPC_USING_NAMESOACE
+#ifndef NO_OPC_USING_NAMESPACE
 using namespace opc;
 #endif
