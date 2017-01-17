@@ -7,10 +7,11 @@
 
 using namespace std;
 
+//表示用のクラス
 class DrawImage {
 public:
 
-
+	//ピクセル軍を表示
 	void display()
 	{
 		View::Perspective(30, 1, 1, 15000);
@@ -33,11 +34,13 @@ public:
 
 	}
 
+	//一定間隔で描画更新
 	void timer(int value) {
 
 		glutPostRedisplay();
 	}
 
+	//マウスの動作
 	void mouseMotion()
 	{
 		Mouse mouse;
@@ -61,6 +64,7 @@ public:
 		}
 	}
 
+	//画像ファイルを読み込む
 	void load() {
 
 		int w, h;
