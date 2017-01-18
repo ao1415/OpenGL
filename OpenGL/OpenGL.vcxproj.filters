@@ -77,9 +77,6 @@
     <ClCompile Include="package\Draw.cpp">
       <Filter>ソース ファイル\OpenGL\Draw</Filter>
     </ClCompile>
-    <ClCompile Include="package\Exception.cpp">
-      <Filter>ソース ファイル\OpenGL\Exception</Filter>
-    </ClCompile>
     <ClCompile Include="package\Point.cpp">
       <Filter>ソース ファイル\OpenGL\Point</Filter>
     </ClCompile>

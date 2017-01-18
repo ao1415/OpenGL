@@ -10,7 +10,9 @@ namespace opc {
 
 	//参考ライブラリ：Siv3D
 
-	/// <summary>動的2次元配列</summary>
+	/// <summary>
+	///	動的2次元配列
+	///	</summary>
 	template<typename Type>
 	class Grid {
 	private:

@@ -13,6 +13,8 @@ namespace opc {
 
 	void Bitmap::load(const std::string& path) {
 
+		flag = false;
+
 		std::ifstream ifs(path, std::ios::in | std::ios::binary);
 
 		if (!ifs)
@@ -39,6 +41,7 @@ namespace opc {
 		unsigned int biClrUsed;
 		unsigned int biClrImportant;
 
+		//ヘッダー読み込み
 		const auto fileHeader = [&]() {
 
 			ifs.read((char*)&bfType, sizeof(unsigned short));
@@ -56,6 +59,7 @@ namespace opc {
 			return true;
 		};
 
+		//インフォ読み込み
 		const auto infoHeader = [&]() {
 
 			ifs.read((char*)&biSize, sizeof(unsigned int));
@@ -168,6 +172,7 @@ namespace opc {
 		}
 
 		setTexture();
+		flag = true;
 	}
 
 	void Bitmap::setTexture() {

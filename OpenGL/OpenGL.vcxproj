@@ -155,7 +155,6 @@
     <ClCompile Include="package\Color.cpp" />
     <ClCompile Include="package\Display.cpp" />
     <ClCompile Include="package\Draw.cpp" />
-    <ClCompile Include="package\Exception.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="package\Point.cpp" />
