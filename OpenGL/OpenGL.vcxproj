@@ -168,7 +168,6 @@
   <ItemGroup>
     <ClInclude Include="package\Mouse.hpp" />
     <ClInclude Include="package\Bitmap.hpp" />
-    <ClInclude Include="package\Matrix.hpp" />
     <ClInclude Include="package\Grid.hpp" />
     <ClInclude Include="package\AcyncTimer.hpp" />
     <ClInclude Include="package\Color.hpp" />
