@@ -57,10 +57,10 @@ namespace opc {
 		byte a = 0;
 	};
 
-	/// <summary><see cref="Color"/>の出力ストリーム用オーバーロード</summary>
+	/// <summary><see cref="Color"/>出力ストリームに<see cref="Color"/>を渡す</summary>
 	/// <param name="os">出力ストリーム</param>
 	/// <param name="v">出力<see cref="Color"/></param>
-	/// <returns></returns>
+	/// <returns>渡した後のストリーム</returns>
 	template <class CharType>
 	inline std::basic_ostream<CharType>& operator << (std::basic_ostream<CharType>& os, const Color& v) {
 		return os << CharType('(') << (int)v.r << CharType(',') << (int)v.g << CharType(',') << (int)v.b << CharType(',') << (int)v.a << CharType(')');

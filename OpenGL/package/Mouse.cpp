@@ -7,9 +7,9 @@ namespace opc {
 
 	bool Mouse::moved;
 
-	IntPoint Mouse::clickPos;
-	IntPoint Mouse::motionPos;
-	IntPoint Mouse::previousPos;
+	Point Mouse::clickPos;
+	Point Mouse::motionPos;
+	Point Mouse::previousPos;
 
 	std::function<void(int, int, int, int)> Mouse::mouseFunc;
 	std::function<void()> Mouse::motionFunc;
@@ -31,7 +31,7 @@ namespace opc {
 		if (state == GLUT_DOWN)
 		{
 			pressedButton = btn;
-			clickPos = IntPoint(x, y);
+			clickPos = Point(x, y);
 			motionPos = clickPos;
 			previousPos = clickPos;
 			pressed = true;
@@ -46,7 +46,7 @@ namespace opc {
 
 	void Mouse::motion(int x, int y) {
 		previousPos = motionPos;
-		motionPos = IntPoint(x, y);
+		motionPos = Point(x, y);
 		//std::cout << motionPos - previousPos << std::endl;
 
 		if (motionFunc)

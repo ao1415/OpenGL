@@ -52,7 +52,7 @@ namespace opc {
 		/// <summary>ウインドウの座標を設定する(2D座標)</summary>
 		/// <param name="left_top">左上の座標値</param>
 		/// <param name="right_bottom">右下の座標値</param>
-		static void setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom);
+		static void setOrtho2D(const Vec2& left_top, const Vec2& right_bottom);
 
 		/// <summary>ウインドウの座標を設定する(3D座標)</summary>
 		/// <param name="left">左端の座標値</param>
@@ -65,7 +65,7 @@ namespace opc {
 		/// <summary>ウインドウの座標を設定する(3D座標)</summary>
 		/// <param name="left_top">手前左上の座標値</param>
 		/// <param name="right_bottom">奥右下の座標値</param>
-		static void setOrtho3D(const RealVector& left_top_near, const RealVector& right_bottom_far);
+		static void setOrtho3D(const Vec3& left_top_near, const Vec3& right_bottom_far);
 
 		friend System;
 
@@ -79,13 +79,13 @@ namespace opc {
 		/// <para>0:左上の座標</para>
 		/// <para>1:右下の座標</para>
 		/// </summary>
-		static RealPoint ortho2DPoint[2];
+		static Vec2 ortho2DPoint[2];
 
 		/// <summary>
 		/// <para>0:手前左上のの座標</para>
 		/// <para>1:奥右下の座標</para>
 		/// </summary>
-		static RealVector ortho3DPoint[2];
+		static Vec3 ortho3DPoint[2];
 
 	};
 

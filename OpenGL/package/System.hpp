@@ -1,8 +1,6 @@
 #pragma once
-
 #include "Window.hpp"
 #include "Grid.hpp"
-#include "Matrix.hpp"
 #include "Bitmap.hpp"
 #include "Mouse.hpp"
 

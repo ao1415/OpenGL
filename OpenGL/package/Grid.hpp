@@ -97,11 +97,11 @@ namespace opc {
 		/// <summary>配列参照</summary>
 		/// <param name="pos">座標</param>
 		/// <returns>参照値</returns>
-		Type& at(const IntPoint& pos) { return at(pos.y, pos.x); }
+		Type& at(const Point& pos) { return at(pos.y, pos.x); }
 		/// <summary>配列参照</summary>
 		/// <param name="pos">座標</param>
 		/// <returns>参照値</returns>
-		const Type& at(const IntPoint& pos) const { return at(pos.y, pos.x); }
+		const Type& at(const Point& pos) const { return at(pos.y, pos.x); }
 
 		/// <summary>配列参照</summary>
 		/// <param name="index">添え字</param>
@@ -115,11 +115,11 @@ namespace opc {
 		/// <summary>配列参照</summary>
 		/// <param name="pos">座標</param>
 		/// <returns>参照値</returns>
-		Type& operator[](const IntPoint& pos) { return data[pos.y*width + pos.x]; }
+		Type& operator[](const Point& pos) { return data[pos.y*width + pos.x]; }
 		/// <summary>配列参照</summary>
 		/// <param name="pos">座標</param>
 		/// <returns>参照値</returns>
-		const Type& operator[](const IntPoint& pos) const { return data[pos.y*width + pos.x]; }
+		const Type& operator[](const Point& pos) const { return data[pos.y*width + pos.x]; }
 
 		/// <summary>配列が空かを返す</summary>
 		/// <returns>空ならばtrue, それ以外はfalse</returns>

@@ -19,15 +19,15 @@ namespace opc {
 		///	<param name="eye">目の位置</param>
 		///	<param name="center">視点の位置</param>
 		///	<param name="up">上の設定</param>
-		void LookAt(const RealVector& eye, const RealVector& center, const RealVector& up);
+		void LookAt(const Vec3& eye, const Vec3& center, const Vec3& up);
 
 		///	<summary>平行移動</summary>
 		///	<param name="vector">移動方向</param>
-		void Translate(const RealVector& vector);
+		void Translate(const Vec3& vector);
 
 		///	<summary>回転</summary>
 		///	<param name="vector">回転方向</param>
-		void Rotate(const double angle, const RealVector& vector);
+		void Rotate(const double angle, const Vec3& vector);
 
 	}
 

@@ -64,7 +64,7 @@ namespace opc {
 		/// <summary>ピクセルにアクセスする</summary>
 		/// <param name="pos">座標</param>
 		/// <returns>色</returns>
-		const Color& operator[](const IntPoint& pos) const { return colorMap[pos]; }
+		const Color& operator[](const Point& pos) const { return colorMap[pos]; }
 
 	private:
 		/// <summary>

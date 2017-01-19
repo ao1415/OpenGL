@@ -35,10 +35,10 @@ namespace opc {
 			Pixel(const double x, const double y);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p">座標</param>
-			Pixel(const IntPoint& p);
+			Pixel(const Point& p);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p">座標</param>
-			Pixel(const RealPoint& p);
+			Pixel(const Vec2& p);
 
 			/// <summary>
 			/// 描画関数
@@ -60,7 +60,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			RealPoint point;
+			Vec2 point;
 
 		};
 
@@ -89,17 +89,17 @@ namespace opc {
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p1">始点の座標</param>
 			/// <param name="p2">終点の座標</param>
-			Line(const IntPoint& p1, const IntPoint& p2);
+			Line(const Point& p1, const Point& p2);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="ps">座標配列</param>
-			Line(const std::array<IntPoint, 2>& ps);
+			Line(const std::array<Point, 2>& ps);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p1">始点の座標</param>
 			/// <param name="p2">終点の座標</param>
-			Line(const RealPoint& p1, const RealPoint& p2);
+			Line(const Vec2& p1, const Vec2& p2);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="ps">座標配列</param>
-			Line(const std::array<RealPoint, 2>& ps);
+			Line(const std::array<Vec2, 2>& ps);
 
 			/// <summary>
 			/// 描画関数
@@ -121,7 +121,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			std::array<RealPoint, 2> points;
+			std::array<Vec2, 2> points;
 
 		};
 
@@ -155,18 +155,18 @@ namespace opc {
 			/// <param name="p1">1点目の座標</param>
 			/// <param name="p2">2点目の座標</param>
 			/// <param name="p3">3点目の座標</param>
-			Triangle(const IntPoint& p1, const IntPoint& p2, const IntPoint& p3);
+			Triangle(const Point& p1, const Point& p2, const Point& p3);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="ps">座標の配列</param>
-			Triangle(const std::array<IntPoint, 3>& ps);
+			Triangle(const std::array<Point, 3>& ps);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p1">1点目の座標</param>
 			/// <param name="p2">2点目の座標</param>
 			/// <param name="p3">3点目の座標</param>
-			Triangle(const RealPoint& p1, const RealPoint& p2, const RealPoint& p3);
+			Triangle(const Vec2& p1, const Vec2& p2, const Vec2& p3);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="ps">座標の配列</param>
-			Triangle(const std::array<RealPoint, 3>& ps);
+			Triangle(const std::array<Vec2, 3>& ps);
 
 			/// <summary>
 			/// 描画関数
@@ -189,7 +189,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			std::array<RealPoint, 3> points;
+			std::array<Vec2, 3> points;
 
 		};
 
@@ -228,19 +228,19 @@ namespace opc {
 			/// <param name="p2">2点目の座標</param>
 			/// <param name="p3">3点目の座標</param>
 			/// <param name="p4">4点目の座標</param>
-			Quad(const IntPoint& p1, const IntPoint& p2, const IntPoint& p3, const IntPoint& p4);
+			Quad(const Point& p1, const Point& p2, const Point& p3, const Point& p4);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p1">座標の配列</param>
-			Quad(const std::array<IntPoint, 4>& ps);
+			Quad(const std::array<Point, 4>& ps);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p1">1点目の座標</param>
 			/// <param name="p2">2点目の座標</param>
 			/// <param name="p3">3点目の座標</param>
 			/// <param name="p4">4点目の座標</param>
-			Quad(const RealPoint& p1, const RealPoint& p2, const RealPoint& p3, const RealPoint& p4);
+			Quad(const Vec2& p1, const Vec2& p2, const Vec2& p3, const Vec2& p4);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="p1">座標の配列</param>
-			Quad(const std::array<RealPoint, 4>& ps);
+			Quad(const std::array<Vec2, 4>& ps);
 
 			/// <summary>
 			/// 描画関数
@@ -263,7 +263,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			std::array<RealPoint, 4> points;
+			std::array<Vec2, 4> points;
 
 		};
 
@@ -292,11 +292,11 @@ namespace opc {
 			/// <summary>コンストラクタ</summary>
 			/// <param name="pos">座標</param>
 			/// <param name="size">大きさ</param>
-			Rect(const IntPoint& pos, const RealSize& size);
+			Rect(const Point& pos, const RealSize& size);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="pos">座標</param>
 			/// <param name="size">大きさ</param>
-			Rect(const RealPoint& pos, const RealSize& size);
+			Rect(const Vec2& pos, const RealSize& size);
 
 		};
 	}
@@ -328,10 +328,10 @@ namespace opc {
 			Pixel(const double x, const double y, const double z);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v">座標</param>
-			Pixel(const IntVector& v);
+			Pixel(const Point3D& v);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v">座標</param>
-			Pixel(const RealVector& v);
+			Pixel(const Vec3& v);
 
 			/// <summary>
 			/// 描画関数
@@ -353,7 +353,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			RealVector vec;
+			Vec3 vec;
 
 		};
 
@@ -386,17 +386,17 @@ namespace opc {
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v1">始点の座標</param>
 			/// <param name="v2">始点の座標</param>
-			Line(const IntVector& v1, const IntVector& v2);
+			Line(const Point3D& v1, const Point3D& v2);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="vs">座標の配列</param>
-			Line(const std::array<IntVector, 2>& vs);
+			Line(const std::array<Point3D, 2>& vs);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v1">始点の座標</param>
 			/// <param name="v2">始点の座標</param>
-			Line(const RealVector& v1, const RealVector& v2);
+			Line(const Vec3& v1, const Vec3& v2);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="vs">座標の配列</param>
-			Line(const std::array<RealVector, 2>& vs);
+			Line(const std::array<Vec3, 2>& vs);
 
 			/// <summary>
 			/// 描画関数
@@ -418,7 +418,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			std::array<RealVector, 2> vectors;
+			std::array<Vec3, 2> vectors;
 
 		};
 
@@ -458,18 +458,18 @@ namespace opc {
 			/// <param name="v1">1番目の座標</param>
 			/// <param name="v2">2番目の座標</param>
 			/// <param name="v3">3番目の座標</param>
-			Triangle(const IntVector& v1, const IntVector& v2, const IntVector& v3);
+			Triangle(const Point3D& v1, const Point3D& v2, const Point3D& v3);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="vs">座標の配列</param>
-			Triangle(const std::array<IntVector, 3>& vs);
+			Triangle(const std::array<Point3D, 3>& vs);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v1">1番目の座標</param>
 			/// <param name="v2">2番目の座標</param>
 			/// <param name="v3">3番目の座標</param>
-			Triangle(const RealVector& v1, const RealVector& v2, const RealVector& v3);
+			Triangle(const Vec3& v1, const Vec3& v2, const Vec3& v3);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="vs">座標の配列</param>
-			Triangle(const std::array<RealVector, 3>& vs);
+			Triangle(const std::array<Vec3, 3>& vs);
 
 			/// <summary>
 			/// 描画関数
@@ -492,7 +492,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			std::array<RealVector, 3> vectors;
+			std::array<Vec3, 3> vectors;
 
 		};
 
@@ -539,19 +539,19 @@ namespace opc {
 			/// <param name="v2">2番目の座標</param>
 			/// <param name="v3">3目の座標</param>
 			/// <param name="v4">4番目の座標</param>
-			Quad(const IntVector& v1, const IntVector& v2, const IntVector& v3, const IntVector& v4);
+			Quad(const Point3D& v1, const Point3D& v2, const Point3D& v3, const Point3D& v4);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="vs">座標の配列</param>
-			Quad(const std::array<IntVector, 4>& vs);
+			Quad(const std::array<Point3D, 4>& vs);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v1">1番目の座標</param>
 			/// <param name="v2">2番目の座標</param>
 			/// <param name="v3">3目の座標</param>
 			/// <param name="v4">4番目の座標</param>
-			Quad(const RealVector& v1, const RealVector& v2, const RealVector& v3, const RealVector& v4);
+			Quad(const Vec3& v1, const Vec3& v2, const Vec3& v3, const Vec3& v4);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="vs">座標の配列</param>
-			Quad(const std::array<RealVector, 4>& vs);
+			Quad(const std::array<Vec3, 4>& vs);
 
 			/// <summary>
 			/// 描画関数
@@ -574,7 +574,7 @@ namespace opc {
 			/// <summary>
 			/// 描画座標
 			/// </summary>
-			std::array<RealVector, 4> vectors;
+			std::array<Vec3, 4> vectors;
 
 		};
 
@@ -607,11 +607,11 @@ namespace opc {
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v1">座標</param>
 			/// <param name="v2">大きさ</param>
-			Rect(const IntVector& v1, const IntVector& v2);
+			Rect(const Point3D& v1, const Point3D& v2);
 			/// <summary>コンストラクタ</summary>
 			/// <param name="v1">座標</param>
 			/// <param name="v2">大きさ</param>
-			Rect(const RealVector& v1, const RealVector& v2);
+			Rect(const Vec3& v1, const Vec3& v2);
 
 		};
 

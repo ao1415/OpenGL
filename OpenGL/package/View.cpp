@@ -10,17 +10,17 @@ namespace opc {
 			gluPerspective(fovy, aspect, zNear, zFar);
 		}
 
-		void LookAt(const RealVector& eye, const RealVector& center, const RealVector& up) {
+		void LookAt(const Vec3& eye, const Vec3& center, const Vec3& up) {
 			glMatrixMode(GL_MODELVIEW);
 			glLoadIdentity();
 			gluLookAt(eye.x, eye.y, eye.z, center.x, center.y, center.z, up.x, up.y, up.z);
 		}
 
-		void Translate(const RealVector& camera) {
+		void Translate(const Vec3& camera) {
 			glTranslated(camera.x, camera.y, camera.z);
 		}
 
-		void Rotate(const double angle, const RealVector& vector) {
+		void Rotate(const double angle, const Vec3& vector) {
 			glRotated(angle, vector.x, vector.y, vector.z);
 		}
 

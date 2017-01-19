@@ -16,11 +16,11 @@ public:
 	{
 		View::Perspective(30, 1, 1, 15000);
 
-		View::LookAt(RealVector(0, 0, 1000), RealVector(0, 0, 0), RealVector(0, -1, 0));
+		View::LookAt(Vec3(0, 0, 1000), Vec3(0, 0, 0), Vec3(0, -1, 0));
 
-		View::Translate(RealVector(camera.x, camera.y, 0));
-		View::Rotate(angle.x, RealVector(-1, 0, 0));
-		View::Rotate(angle.y, RealVector(0, -1, 0));
+		View::Translate(Vec3(camera.x, camera.y, 0));
+		View::Rotate(angle.x, Vec3(-1, 0, 0));
+		View::Rotate(angle.y, Vec3(0, -1, 0));
 
 		for (int y = 0; y < textureSize.height; y++)
 		{
@@ -98,8 +98,8 @@ public:
 
 private:
 
-	RealPoint angle;
-	RealPoint camera;
+	Vec2 angle;
+	Vec2 camera;
 
 	IntSize textureSize;
 	Grid<pair<int, Color>> bitmap;

@@ -22,13 +22,13 @@ namespace opc {
 			return (pressed && pressedButton == GLUT_RIGHT_BUTTON);
 		}
 
-		Property_Get(IntPoint, ClickPos) const {
+		Property_Get(Point, ClickPos) const {
 			return clickPos;
 		}
-		Property_Get(IntPoint, MotionPos) const {
+		Property_Get(Point, MotionPos) const {
 			return motionPos;
 		}
-		Property_Get(IntPoint, PreviousPos) const {
+		Property_Get(Point, PreviousPos) const {
 			return previousPos;
 		}
 
@@ -43,11 +43,11 @@ namespace opc {
 		static bool moved;
 
 		/// <summary>クリックした座標</summary>
-		static IntPoint clickPos;
+		static Point clickPos;
 		/// <summary>ドラッグした座標</summary>
-		static IntPoint motionPos;
+		static Point motionPos;
 		/// <summary>直前の座標</summary>
-		static IntPoint previousPos;
+		static Point previousPos;
 
 		static std::function<void(int, int, int, int)> mouseFunc;
 		static std::function<void()> motionFunc;

@@ -5,8 +5,8 @@ namespace opc {
 	IntSize Window::size;
 	std::string Window::title;
 	Color Window::clearColor;
-	RealPoint Window::ortho2DPoint[2];
-	RealVector Window::ortho3DPoint[2];
+	Vec2 Window::ortho2DPoint[2];
+	Vec3 Window::ortho3DPoint[2];
 
 	void Window::setSize(const int width, const int height) {
 		setSize(IntSize(width, height));
@@ -36,9 +36,9 @@ namespace opc {
 	}
 
 	void Window::setOrtho2D(const double left, const double right, const double bottom, const double top) {
-		setOrtho2D(RealPoint(left, top), RealPoint(right, bottom));
+		setOrtho2D(Vec2(left, top), Vec2(right, bottom));
 	}
-	void Window::setOrtho2D(const RealPoint& left_top, const RealPoint& right_bottom) {
+	void Window::setOrtho2D(const Vec2& left_top, const Vec2& right_bottom) {
 		if (SystemState::getMakeWindow())
 			throw SettingErrer("画面の座標値を変更できませんでした");
 
@@ -47,9 +47,9 @@ namespace opc {
 	}
 
 	void Window::setOrtho3D(const double left, const double right, const double bottom, const double top, const double zNear, const double zFar) {
-		setOrtho3D(RealVector(left, top, zNear), RealVector(right, bottom, zFar));
+		setOrtho3D(Vec3(left, top, zNear), Vec3(right, bottom, zFar));
 	}
-	void Window::setOrtho3D(const RealVector& left_top_near, const RealVector& right_bottom_far) {
+	void Window::setOrtho3D(const Vec3& left_top_near, const Vec3& right_bottom_far) {
 		if (SystemState::getMakeWindow())
 			throw SettingErrer("画面の座標値を変更できませんでした");
 
