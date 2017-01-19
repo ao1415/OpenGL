@@ -156,7 +156,6 @@
     <ClCompile Include="package\Display.cpp" />
     <ClCompile Include="package\Draw.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OpenGL.cpp" />
     <ClCompile Include="package\Point.cpp" />
     <ClCompile Include="package\Size.cpp" />
     <ClCompile Include="package\System.cpp" />

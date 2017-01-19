@@ -98,10 +98,14 @@ public:
 
 private:
 
+	//視点角度
 	Vec2 angle;
+	//カメラ位置
 	Vec2 camera;
 
+	//テクスチャの大きさ
 	IntSize textureSize;
+	//ピクセルと奥行データ
 	Grid<pair<int, Color>> bitmap;
 
 };
@@ -111,11 +115,11 @@ int main(int argc, char *argv[])
 	//3D表示を行うクラスの宣言
 	DrawImage drawImage;
 
-	
+
 	//データの読み込み
 	drawImage.load();
 
-	
+
 	//ウインドウ作成クラスの宣言
 	System system;
 

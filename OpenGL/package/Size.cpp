@@ -12,9 +12,6 @@ namespace opc {
 	RealSize::RealSize() {
 
 	}
-	RealSize::RealSize(const int w, const int h) : width(w), height(h) {
-
-	}
 	RealSize::RealSize(const double w, const double h) : width(w), height(h) {
 
 	}

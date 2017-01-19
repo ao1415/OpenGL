@@ -12,7 +12,9 @@
 
 namespace opc {
 
-	/// <summary>ウインドウの設定を行うクラス</summary>
+	/// <summary>
+	/// ウインドウの設定を行うクラス
+	/// </summary>
 	class Window {
 	public:
 
@@ -71,8 +73,17 @@ namespace opc {
 
 	private:
 
+		/// <summary>
+		/// ウインドウの大きさ
+		/// </summary>
 		static IntSize size;
+		/// <summary>
+		/// ウインドウのタイトル
+		/// </summary>
 		static std::string title;
+		/// <summary>
+		/// ウインドウのクリアカラー
+		/// </summary>
 		static Color clearColor;
 
 		/// <summary>
@@ -88,6 +99,5 @@ namespace opc {
 		static Vec3 ortho3DPoint[2];
 
 	};
-
 
 }

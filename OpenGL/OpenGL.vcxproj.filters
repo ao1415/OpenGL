@@ -95,9 +95,6 @@
     <ClCompile Include="package\Window.cpp">
       <Filter>ソース ファイル\OpenGL\System\Window</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGL.cpp">
-      <Filter>ソース ファイル\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="package\View.cpp">
       <Filter>ソース ファイル\OpenGL\View</Filter>
     </ClCompile>

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Window.hpp"
 #include "Grid.hpp"
 #include "Bitmap.hpp"
@@ -6,39 +7,72 @@
 
 namespace opc {
 
-	/// <summary>ディスプレイの設定コマンド</summary>
+	/// <summary>
+	///	ディスプレイの設定コマンド
+	///	</summary>
 	enum class DisplayMode : unsigned int {
-		/// <summary>RGBAモード</summary>
+		/// <summary>
+		/// RGBAモード
+		/// </summary>
 		RGBA = GLUT_RGBA,
-		/// <summary>RGBモード</summary>
+		/// <summary>
+		/// RGBモード
+		/// </summary>
 		RGB = GLUT_RGB,
-		/// <summary>カラーインデックスモード</summary>
+		/// <summary>
+		/// カラーインデックスモード
+		/// </summary>
 		Index = GLUT_INDEX,
-		/// <summary>シングルバッファモード</summary>
+		/// <summary>
+		/// シングルバッファモード
+		/// </summary>
 		Single = GLUT_SINGLE,
-		/// <summary>ダブルバッファモード</summary>
+		/// <summary>
+		/// ダブルバッファモード
+		/// </summary>
 		Double = GLUT_DOUBLE,
-		/// <summary>アキュムレーションバッファ</summary>
+		/// <summary>
+		/// アキュムレーションバッファ
+		/// </summary>
 		Accum = GLUT_ACCUM,
-		/// <summary>カラーバッファにアルファ成分を加える</summary>
+		/// <summary>
+		/// カラーバッファにアルファ成分を加える
+		/// </summary>
 		Alpha = GLUT_ALPHA,
-		/// <summary>ディプス(Z)バッファを加える</summary>
+		/// <summary>
+		/// ディプス(Z)バッファを加える
+		/// </summary>
 		Depth = GLUT_DEPTH,
-		/// <summary>マルチサンプリングのサポート</summary>
+		/// <summary>
+		/// マルチサンプリングのサポート
+		/// </summary>
 		Stencil = GLUT_STENCIL,
-		/// <summary></summary>
+		/// <summary>
+		/// </summary>
 		MultiSample = GLUT_MULTISAMPLE,
-		/// <summary>ステレオ・ウインドウビットマスク</summary>
+		/// <summary>
+		/// ステレオ・ウインドウビットマスク
+		/// </summary>
 		Stereo = GLUT_STEREO
 	};
 
-	/// <summary>クリアバッファの設定コマンド</summary>
+	/// <summary>
+	///	クリアバッファの設定コマンド
+	///	</summary>
 	enum class ClearMode : unsigned int {
-		/// <summary>色</summary>
+		/// <summary>
+		/// 色
+		/// </summary>
 		Color = GL_COLOR_BUFFER_BIT,
-		/// <summary>深度</summary>
+		/// <summary>
+		/// 深度
+		/// </summary>
 		Depth = GL_DEPTH_BUFFER_BIT,
+		/// <summary>
+		/// </summary>
 		Accum = GL_ACCUM_BUFFER_BIT,
+		/// <summary>
+		/// </summary>
 		Stencil = GL_STENCIL_BUFFER_BIT
 	};
 
@@ -49,9 +83,11 @@ namespace opc {
 	class System {
 	public:
 
-		/// <summary>各種設定の初期化</summary>
+		/// <summary>
+		///	コンストラクタ
+		///	</summary>
 		System();
-		/// <summary>各種設定の初期化</summary>
+		/// <summary>コンストラクタ</summary>
 		/// <param name="argc">argvの要素数</param>
 		/// <param name="argv">文字列の配列</param>
 		System(int argc, char *argv[]);
@@ -62,7 +98,9 @@ namespace opc {
 		///	</summary>
 		void create();
 
-		/// <summary>設定されたプログラムを実行します</summary>
+		/// <summary>
+		///	設定されたプログラムを実行します
+		///	</summary>
 		void update();
 
 		/// <summary>ディスプレイモードの設定</summary>
@@ -103,7 +141,7 @@ namespace opc {
 		void disable(const unsigned int mode);
 
 		/// <summary>描画関数を設定する</summary>
-		/// <param name="func">描画する関数ポインタ</param>
+		/// <param name="func">関数ポインタ</param>
 		void setDisplayFunc(std::function<void()> func);
 
 		/// <summary>
@@ -117,7 +155,7 @@ namespace opc {
 
 		/// <summary>マウスクリックの関数を登録する</summary>
 		/// <param name="func">関数ポインタ</param>
-		void setMouseFunc(std::function<void(int,int,int,int)> func);
+		void setMouseFunc(std::function<void(int, int, int, int)> func);
 
 		/// <summary>マウス動作の関数を登録する</summary>
 		/// <param name="func">関数ポインタ</param>
@@ -125,20 +163,46 @@ namespace opc {
 
 	private:
 
+		/// <summary>
+		/// ディスプレイ設定
+		/// </summary>
 		unsigned int displayMode;
+		/// <summary>
+		/// バッファクリア設定
+		/// </summary>
 		unsigned int clearMode;
 
+		/// <summary>
+		/// 有効にするモードの配列
+		/// </summary>
 		std::vector<unsigned int> enableConfig;
+		/// <summary>
+		/// 無効にするモードの配列
+		/// </summary>
 		std::vector<unsigned int> disableConfig;
 
+		/// <summary>
+		/// 描画関数
+		/// </summary>
 		std::function<void()> displayFunction = nullptr;
+		/// <summary>
+		/// タイマー関数
+		/// </summary>
 		std::function<void(int)> timerFunction = nullptr;
 
-		std::function<void(int,int,int,int)> mouseFunction = nullptr;
+		/// <summary>
+		/// マウス入力関数
+		/// </summary>
+		std::function<void(int, int, int, int)> mouseFunction = nullptr;
+		/// <summary>
+		/// マウス動作関数
+		/// </summary>
 		std::function<void()> motionFunction = nullptr;
 
 
-		/// <summary>初期設定</summary>
+		/// <summary>
+		///	初期設定
+		///	</summary>
 		void init() {
 
 			Window::setSize(IntSize(640, 480));
@@ -151,10 +215,16 @@ namespace opc {
 
 		}
 
+
+		/// <summary>フラグの加算関数</summary>
+		/// <param name="...rest">加算したいフラグ</param>
+		/// <returns>加算されたフラグ</returns>
 		template<typename First, typename... Rest>
 		const unsigned int orFlag(const First& first, const Rest&... rest) {
 			return (unsigned int)first | orFlag(rest...);
 		}
+		/// <summary>フラグの加算関数(終端用)</summary>
+		/// <returns>0</returns>
 		inline const unsigned int orFlag() {
 			return 0;
 		}
