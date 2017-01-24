@@ -32,6 +32,11 @@ namespace opc {
 		Property_Get(bool, mouseR_Click) const {
 			return (pressed && pressedButton == GLUT_RIGHT_BUTTON);
 		}
+		/// <summary>中クリックされたかを返す</summary>
+		/// <returns>中クリックされていたらtrue, それ以外はfalse</returns>
+		Property_Get(bool, mouseM_Click) const {
+			return (pressed && pressedButton == GLUT_MIDDLE_BUTTON);
+		}
 
 		/// <summary>クリックされた場所を返す</summary>
 		/// <returns>クリックされた場所</returns>

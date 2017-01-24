@@ -87,7 +87,7 @@ namespace opc {
 			points = ps;
 		}
 
-		void Triangle::draw(const double size, const Color& color) const {
+		void Triangle::draw(const double, const Color& color) const {
 			Paint::Color(color);
 			glBegin(GL_TRIANGLES);
 			glVertex2d(points[0].x, points[0].y);
@@ -120,7 +120,7 @@ namespace opc {
 			points = ps;
 		}
 
-		void Quad::draw(const double size, const Color& color) const {
+		void Quad::draw(const double, const Color& color) const {
 			Paint::Color(color);
 			glBegin(GL_QUADS);
 			glVertex2d(points[0].x, points[0].y);
@@ -240,7 +240,7 @@ namespace opc {
 			vectors = vs;
 		}
 
-		void Triangle::draw(const double size, const Color& color) const {
+		void Triangle::draw(const double, const Color& color) const {
 			Paint::Color(color);
 			glBegin(GL_TRIANGLES);
 			glVertex3d(vectors[0].x, vectors[0].y, vectors[0].z);
@@ -273,7 +273,7 @@ namespace opc {
 			vectors = vs;
 		}
 
-		void Quad::draw(const double size, const Color& color) const {
+		void Quad::draw(const double, const Color& color) const {
 			Paint::Color(color);
 			glBegin(GL_QUADS);
 			glVertex3d(vectors[0].x, vectors[0].y, vectors[0].z);
@@ -305,6 +305,61 @@ namespace opc {
 			vectors[1] = pos + Vec3(size.x, 0, size.z);
 			vectors[2] = pos + Vec3(size.x, size.y, size.z);
 			vectors[3] = pos + Vec3(0, size.y, 0);
+		}
+
+		Box::Box() : Box(Vec3(0, 0, 0), Vec3(1, 1, 1)) {
+
+		}
+		Box::Box(const int x, const int y, const int z, const int sx, const int sy, const int sz)
+			: Box(Vec3(x, y, z), Vec3(sx, sy, sz)) {
+
+		}
+		Box::Box(const double x, const double y, const double z, const double sx, const double sy, const double sz)
+			: Box(Vec3(x, y, z), Vec3(sx, sy, sz)) {
+
+		}
+		Box::Box(const Point3D& v, const Point3D& s) {
+			pos = v;
+			size = s;
+		}
+		Box::Box(const Vec3& v, const Vec3& s) {
+			pos = v;
+			size = s;
+		}
+
+		void Box::draw(const double, const Color& color) const {
+			Paint::Color(color);
+			glBegin(GL_QUADS);
+			glVertex3d(pos.x, pos.y, pos.z);
+			glVertex3d(pos.x + size.x, pos.y, pos.z);
+			glVertex3d(pos.x + size.x, pos.y + size.y, pos.z);
+			glVertex3d(pos.x, pos.y + size.y, pos.z);
+
+			glVertex3d(pos.x, pos.y, pos.z);
+			glVertex3d(pos.x, pos.y, pos.z + size.z);
+			glVertex3d(pos.x + size.x, pos.y, pos.z + size.z);
+			glVertex3d(pos.x + size.x, pos.y, pos.z);
+
+			glVertex3d(pos.x, pos.y, pos.z);
+			glVertex3d(pos.x, pos.y + size.y, pos.z);
+			glVertex3d(pos.x, pos.y + size.y, pos.z + size.z);
+			glVertex3d(pos.x, pos.y, pos.z + size.z);
+
+			glVertex3d(pos.x + size.x, pos.y + size.y, pos.z + size.z);
+			glVertex3d(pos.x + size.x, pos.y, pos.z + size.z);
+			glVertex3d(pos.x + size.x, pos.y, pos.z);
+			glVertex3d(pos.x + size.x, pos.y + size.y, pos.z);
+
+			glVertex3d(pos.x + size.x, pos.y + size.y, pos.z + size.z);
+			glVertex3d(pos.x + size.x, pos.y + size.y, pos.z);
+			glVertex3d(pos.x, pos.y + size.y, pos.z);
+			glVertex3d(pos.x, pos.y + size.y, pos.z + size.z);
+
+			glVertex3d(pos.x + size.x, pos.y + size.y, pos.z + size.z);
+			glVertex3d(pos.x, pos.y + size.y, pos.z + size.z);
+			glVertex3d(pos.x, pos.y, pos.z + size.z);
+			glVertex3d(pos.x + size.x, pos.y, pos.z + size.z);
+			glEnd();
 		}
 
 	}

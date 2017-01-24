@@ -615,6 +615,64 @@ namespace opc {
 
 		};
 
+		class Box {
+		public:
+
+			/// <summary>
+			/// コンストラクタ
+			/// </summary>
+			Box();
+			/// <summary>コンストラクタ</summary>
+			/// <param name="x">x座標</param>
+			/// <param name="y">y座標</param>
+			/// <param name="z">z座標</param>
+			/// <param name="sx">横幅</param>
+			/// <param name="sy">縦幅</param>
+			/// <param name="sz">奥行</param>
+			Box(const int x, const int y, const int z, const int sx, const int sy, const int sz);
+			/// <summary>コンストラクタ</summary>
+			/// <param name="x">x座標</param>
+			/// <param name="y">y座標</param>
+			/// <param name="z">z座標</param>
+			/// <param name="sx">横幅</param>
+			/// <param name="sy">縦幅</param>
+			/// <param name="sz">奥行</param>
+			Box(const double x, const double y, const double z, const double sx, const double sy, const double sz);
+			/// <summary>コンストラクタ</summary>
+			/// <param name="v">座標</param>
+			/// <param name="s">大きさ</param>
+			Box(const Point3D& v, const Point3D& s);
+			/// <summary>コンストラクタ</summary>
+			/// <param name="v">座標</param>
+			/// <param name="s">大きさ</param>
+			Box(const Vec3& v, const Vec3& s);
+
+			/// <summary>
+			/// 描画関数
+			/// </summary>
+			void draw() const { draw(1, Palette::White); }
+			/// <summary>描画関数</summary>
+			/// <param name="color">色</param>
+			void draw(const Color& color) const { draw(1, color); }
+
+		protected:
+
+			/// <summary>描画関数</summary>
+			/// <param name="size">大きさ</param>
+			void draw(const double size) const { draw(size, Palette::White); }
+			/// <summary>描画関数</summary>
+			/// <param name="size">大きさ</param>
+			/// <param name="color">色</param>
+			void draw(const double size, const Color& color) const;
+
+			/// <summary>
+			/// 描画座標
+			/// </summary>
+			Vec3 pos;
+			Vec3 size;
+
+		};
+
 	}
 
 }

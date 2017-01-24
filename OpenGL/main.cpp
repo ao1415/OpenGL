@@ -18,17 +18,38 @@ public:
 
 		View::LookAt(Vec3(0, 0, 1000), Vec3(0, 0, 0), Vec3(0, -1, 0));
 
-		View::Translate(Vec3(camera.x, camera.y, 0));
+		View::Translate(Vec3(camera.x, camera.y, distance));
 		View::Rotate(angle.x, Vec3(-1, 0, 0));
 		View::Rotate(angle.y, Vec3(0, -1, 0));
+
+		const auto search = [&](int x, int y) {
+
+			int m = bitmap[y][x].first;
+			for (int dy = -1; dy <= 1; dy++)
+			{
+				for (int dx = -1; dx <= 1; dx++)
+				{
+					Point p(x + dx, y + dy);
+					if (0 <= p.x && p.x < textureSize.width && 0 <= p.y && p.y < textureSize.height)
+						m = min(m, bitmap[y + dy][x + dx].first);
+				}
+			}
+
+			return m;
+		};
 
 		for (int y = 0; y < textureSize.height; y++)
 		{
 			for (int x = 0; x < textureSize.width; x++)
 			{
-				//Draw3D::Pixel(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, 255.0 - bitmap[y][x].first)
-				Draw3D::Pixel(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, (bitmap[y][x].first)*8.0)
-					.draw(2, bitmap[y][x].second);
+				int m = search(x, y);
+
+				const int D = 32;
+				Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, (bitmap[y][x].first) * D);
+				Vec3 size(1, 1, -(bitmap[y][x].first - m) * D);
+
+				Draw3D::Box(pos, size).draw(bitmap[y][x].second);
+
 			}
 		}
 
@@ -57,10 +78,14 @@ public:
 			angle.x += (double)ydir * 0.5;
 			angle.y += (double)xdir * 0.5;
 		}
+		if (mouse.mouseM_Click)
+		{
+			distance -= ydir / 1.0;
+		}
 		if (mouse.mouseR_Click)
 		{
-			camera.x -= xdir / 40.0;
-			camera.y += ydir / 40.0;
+			camera.x -= xdir / 1.0;
+			camera.y += ydir / 1.0;
 		}
 	}
 
@@ -69,7 +94,7 @@ public:
 
 		int w, h;
 
-		ifstream ifs("256.txt");
+		ifstream ifs("読み取り画像002.txt");
 		if (!ifs)
 		{
 			cerr << "ファイルが開けません" << endl;
@@ -102,6 +127,8 @@ private:
 	Vec2 angle;
 	//カメラ位置
 	Vec2 camera;
+	//距離
+	double distance = 0;
 
 	//テクスチャの大きさ
 	IntSize textureSize;
