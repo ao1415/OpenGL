@@ -52,8 +52,7 @@ public:
 					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(color);
 				}
 
-				Vec3 size(1, 1, 0);
-				Draw3D::Rect(pos, size).draw(color);
+				Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(0, 1, 0)).draw(color);
 			}
 		}
 
