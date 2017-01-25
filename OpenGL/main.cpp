@@ -11,7 +11,7 @@ using namespace std;
 class DrawImage {
 public:
 
-	//ピクセル軍を表示
+	//ピクセル群を表示軍
 	void display()
 	{
 		View::Perspective(30, 1, 1, 15000);
@@ -22,34 +22,38 @@ public:
 		View::Rotate(angle.x, Vec3(-1, 0, 0));
 		View::Rotate(angle.y, Vec3(0, -1, 0));
 
-		const auto search = [&](int x, int y) {
-
-			int m = bitmap[y][x].first;
-			for (int dy = -1; dy <= 1; dy++)
-			{
-				for (int dx = -1; dx <= 1; dx++)
-				{
-					Point p(x + dx, y + dy);
-					if (0 <= p.x && p.x < textureSize.width && 0 <= p.y && p.y < textureSize.height)
-						m = min(m, bitmap[y + dy][x + dx].first);
-				}
-			}
-
-			return m;
-		};
-
 		for (int y = 0; y < textureSize.height; y++)
 		{
 			for (int x = 0; x < textureSize.width; x++)
 			{
-				int m = search(x, y);
-
 				const int D = 32;
-				Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, (bitmap[y][x].first) * D);
-				Vec3 size(1, 1, -(bitmap[y][x].first - m) * D);
+				const int depth = bitmap[y][x].first;
+				const Color color = bitmap[y][x].second;
+				const Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, depth * D);
 
-				Draw3D::Box(pos, size).draw(bitmap[y][x].second);
+				if (0 <= x - 1 && bitmap[y][x - 1].first < depth)
+				{
+					int d = -(depth - bitmap[y][x - 1].first) * D;
+					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(0, 1, 0), pos + Vec3(0, 1, d), pos + Vec3(0, 0, d)).draw(color);
+				}
+				if (0 <= y - 1 && bitmap[y - 1][x].first < depth)
+				{
+					int d = -(depth - bitmap[y - 1][x].first) * D;
+					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 0, d), pos + Vec3(0, 0, d)).draw(color);
+				}
+				if (x + 1 < textureSize.width && bitmap[y][x + 1].first < depth)
+				{
+					int d = -(depth - bitmap[y][x + 1].first) * D;
+					Draw3D::Quad(pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(1, 0, d)).draw(color);
+				}
+				if (y + 1 < textureSize.height && bitmap[y + 1][x].first < depth)
+				{
+					int d = -(depth - bitmap[y + 1][x].first) * D;
+					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(color);
+				}
 
+				Vec3 size(1, 1, 0);
+				Draw3D::Rect(pos, size).draw(color);
 			}
 		}
 
