@@ -29,32 +29,35 @@ public:
 				const int D = 32;
 				const int depth = bitmap[y][x].first;
 				const Color color = bitmap[y][x].second;
-				
-				HSV hsv(color);
-				hsv.v *= 0.8;
-				const Color darkColor = hsv.toRGB();
+
+				HSV hsv1(color);
+				HSV hsv2(color);
+				hsv1.v *= 0.8;
+				const Color darkColor1 = hsv1.toRGB();
+				hsv2.v *= 0.7;
+				const Color darkColor2 = hsv2.toRGB();
 
 				const Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, depth * D);
 
 				if (0 <= x - 1 && bitmap[y][x - 1].first < depth)
 				{
 					int d = -(depth - bitmap[y][x - 1].first) * D;
-					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(0, 1, 0), pos + Vec3(0, 1, d), pos + Vec3(0, 0, d)).draw(darkColor);
+					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(0, 1, 0), pos + Vec3(0, 1, d), pos + Vec3(0, 0, d)).draw(darkColor1);
 				}
 				if (0 <= y - 1 && bitmap[y - 1][x].first < depth)
 				{
 					int d = -(depth - bitmap[y - 1][x].first) * D;
-					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 0, d), pos + Vec3(0, 0, d)).draw(darkColor);
+					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 0, d), pos + Vec3(0, 0, d)).draw(darkColor2);
 				}
 				if (x + 1 < textureSize.width && bitmap[y][x + 1].first < depth)
 				{
 					int d = -(depth - bitmap[y][x + 1].first) * D;
-					Draw3D::Quad(pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(1, 0, d)).draw(darkColor);
+					Draw3D::Quad(pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(1, 0, d)).draw(darkColor1);
 				}
 				if (y + 1 < textureSize.height && bitmap[y + 1][x].first < depth)
 				{
 					int d = -(depth - bitmap[y + 1][x].first) * D;
-					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(darkColor);
+					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(darkColor2);
 				}
 
 				Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(0, 1, 0)).draw(color);
@@ -102,7 +105,9 @@ public:
 
 		int w, h;
 
+		//ifstream ifs("読み取り画像002.txt");
 		ifstream ifs("256.txt");
+		
 		if (!ifs)
 		{
 			cerr << "ファイルが開けません" << endl;
