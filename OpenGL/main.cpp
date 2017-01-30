@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <map>
+#include <chrono>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ public:
 		View::Translate(Vec3(camera.x, camera.y, distance));
 		View::Rotate(angle.x, Vec3(-1, 0, 0));
 		View::Rotate(angle.y, Vec3(0, -1, 0));
+
+		const auto start = std::chrono::system_clock::now();
 
 		for (int y = 0; y < textureSize.height; y++)
 		{
@@ -42,28 +45,30 @@ public:
 				if (0 <= x - 1 && bitmap[y][x - 1].first < depth)
 				{
 					int d = -(depth - bitmap[y][x - 1].first) * D;
-					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(0, 1, 0), pos + Vec3(0, 1, d), pos + Vec3(0, 0, d)).draw(darkColor1);
+					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(0, 1, 0), pos + Vec3(0, 1, d), pos + Vec3(0, 0, d)).draw(darkColor2);
 				}
 				if (0 <= y - 1 && bitmap[y - 1][x].first < depth)
 				{
 					int d = -(depth - bitmap[y - 1][x].first) * D;
-					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 0, d), pos + Vec3(0, 0, d)).draw(darkColor2);
+					Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 0, d), pos + Vec3(0, 0, d)).draw(darkColor1);
 				}
 				if (x + 1 < textureSize.width && bitmap[y][x + 1].first < depth)
 				{
 					int d = -(depth - bitmap[y][x + 1].first) * D;
-					Draw3D::Quad(pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(1, 0, d)).draw(darkColor1);
+					Draw3D::Quad(pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(1, 0, d)).draw(darkColor2);
 				}
 				if (y + 1 < textureSize.height && bitmap[y + 1][x].first < depth)
 				{
 					int d = -(depth - bitmap[y + 1][x].first) * D;
-					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(darkColor2);
+					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(darkColor1);
 				}
 
 				Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(0, 1, 0)).draw(color);
 			}
 		}
-
+		const auto end = std::chrono::system_clock::now();
+		const auto dif = end - start;
+		cout << chrono::duration_cast<chrono::microseconds>(dif).count() << "us" << endl;
 	}
 
 	//一定間隔で描画更新
@@ -106,8 +111,9 @@ public:
 		int w, h;
 
 		//ifstream ifs("読み取り画像002.txt");
+		//ifstream ifs("テストケース01.txt");
 		ifstream ifs("256.txt");
-		
+
 		if (!ifs)
 		{
 			cerr << "ファイルが開けません" << endl;
