@@ -35,9 +35,9 @@ public:
 
 				HSV hsv1(color);
 				HSV hsv2(color);
-				hsv1.v *= 0.8;
+				hsv1.v *= 0.85;
 				const Color darkColor1 = hsv1.toRGB();
-				hsv2.v *= 0.7;
+				hsv2.v *= 0.70;
 				const Color darkColor2 = hsv2.toRGB();
 
 				const Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, depth * D);
@@ -68,7 +68,7 @@ public:
 		}
 		const auto end = std::chrono::system_clock::now();
 		const auto dif = end - start;
-		cout << chrono::duration_cast<chrono::microseconds>(dif).count() << "us" << endl;
+		//cout << chrono::duration_cast<chrono::microseconds>(dif).count() << "us" << endl;
 	}
 
 	//ˆê’èŠÔŠu‚Å•`‰æXV
