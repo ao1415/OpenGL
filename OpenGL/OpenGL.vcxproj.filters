@@ -104,6 +104,9 @@
     <ClCompile Include="package\Mouse.cpp">
       <Filter>ソース ファイル\OpenGL\System\Mouse</Filter>
     </ClCompile>
+    <ClCompile Include="package\HSV.cpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="package\AcyncTimer.hpp">
@@ -159,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="package\Mouse.hpp">
       <Filter>ソース ファイル\OpenGL\System\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="package\HSV.hpp">
+      <Filter>ソース ファイル\OpenGL\Color</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
