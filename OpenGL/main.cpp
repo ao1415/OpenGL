@@ -36,9 +36,11 @@ public:
 				HSV hsv1(color);
 				HSV hsv2(color);
 				hsv1.v *= 0.85;
-				const Color darkColor1 = hsv1.toRGB();
+				//const Color darkColor1 = hsv1.toRGB();
+				const Color darkColor1 = color;
 				hsv2.v *= 0.70;
-				const Color darkColor2 = hsv2.toRGB();
+				//const Color darkColor2 = hsv2.toRGB();
+				const Color darkColor2 = color;
 
 				const Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, depth * D);
 
@@ -110,9 +112,13 @@ public:
 
 		int w, h;
 
+		//ifstream ifs("トムとジェリー.txt");
+		//ifstream ifs("トランプ.txt");
+		ifstream ifs("ドラえもん.txt");
+		//ifstream ifs("アナと雪の女王.txt");
 		//ifstream ifs("読み取り画像002.txt");
 		//ifstream ifs("テストケース01.txt");
-		ifstream ifs("256.txt");
+		//ifstream ifs("256.txt");
 
 		if (!ifs)
 		{
