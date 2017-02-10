@@ -45,6 +45,10 @@ namespace opc {
 			h *= 60;
 			s = d / maximum;
 		}
+
+		h = h >= 0 ? fmod(h, 360) : 360 - fmod(-h, 360);
+		s = std::max(0.0, std::min(1.0, s));
+		v = std::max(0.0, std::min(1.0, v));
 	}
 
 	const Color HSV::toRGB() const {
@@ -58,7 +62,7 @@ namespace opc {
 		else
 		{
 			const double _h = h / 60;
-			int i = (int)round(_h);
+			int i = (int)_h;
 			const double f = _h - i;
 			const double p = v*(1 - s);
 			double q;

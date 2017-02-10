@@ -36,11 +36,9 @@ public:
 				HSV hsv1(color);
 				HSV hsv2(color);
 				hsv1.v *= 0.85;
-				//const Color darkColor1 = hsv1.toRGB();
-				const Color darkColor1 = color;
+				const Color darkColor1 = hsv1.toRGB();
 				hsv2.v *= 0.70;
-				//const Color darkColor2 = hsv2.toRGB();
-				const Color darkColor2 = color;
+				const Color darkColor2 = hsv2.toRGB();
 
 				const Vec3 pos(-textureSize.width / 2.0 + x, -textureSize.height / 2.0 + y, depth * D);
 
@@ -64,6 +62,15 @@ public:
 					int d = -(depth - bitmap[y + 1][x].first) * D;
 					Draw3D::Quad(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0), pos + Vec3(1, 1, d), pos + Vec3(0, 1, d)).draw(darkColor1);
 				}
+
+				if (0 <= x - 1 && bitmap[y][x - 1].first != depth)
+					Draw3D::Line(pos + Vec3(0, 0, 0), pos + Vec3(0, 1, 0)).draw(2, Color(0x000000));
+				if (0 <= y - 1 && bitmap[y - 1][x].first != depth)
+					Draw3D::Line(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0)).draw(2, Color(0x000000));
+				if (x + 1 < textureSize.width && bitmap[y][x + 1].first != depth)
+					Draw3D::Line(pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0)).draw(2, Color(0x000000));
+				if (y + 1 < textureSize.height && bitmap[y + 1][x].first != depth)
+					Draw3D::Line(pos + Vec3(0, 1, 0), pos + Vec3(1, 1, 0)).draw(2, Color(0x000000));
 
 				Draw3D::Quad(pos + Vec3(0, 0, 0), pos + Vec3(1, 0, 0), pos + Vec3(1, 1, 0), pos + Vec3(0, 1, 0)).draw(color);
 			}
@@ -114,9 +121,9 @@ public:
 
 		//ifstream ifs("トムとジェリー.txt");
 		//ifstream ifs("トランプ.txt");
-		ifstream ifs("ドラえもん.txt");
+		//ifstream ifs("ドラえもん.txt");
 		//ifstream ifs("アナと雪の女王.txt");
-		//ifstream ifs("読み取り画像002.txt");
+		ifstream ifs("読み取り画像002.txt");
 		//ifstream ifs("テストケース01.txt");
 		//ifstream ifs("256.txt");
 
